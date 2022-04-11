@@ -1,6 +1,9 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS decks;
+DROP TABLE IF EXISTS categories;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -9,6 +12,16 @@ CREATE SEQUENCE seq_user_id
   NO MINVALUE
   CACHE 1;
 
+  CREATE TABLE decks (
+    deck_id int primary key,
+    deck_name varchar(200) NOT NULL,
+    card_id int NOT NULL
+);
+
+CREATE TABLE categories (
+    category_id int primary key,
+    category_name varchar(100) NOT NULL
+);
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -21,5 +34,15 @@ CREATE TABLE users (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+CREATE TABLE cards (
+	card_id int primary key,
+	deck_id int NOT NULL,
+	card_front varchar(50) NOT NULL,
+	card_back varchar(1000) NOT NULL,
+	category_id int NOT NULL,
+	card_difficulty_id int NOT NULL,
 
+
+	CONSTRAINT FK_cards FOREIGN KEY (category_id) references categories (category_id)
+);
 COMMIT TRANSACTION;
