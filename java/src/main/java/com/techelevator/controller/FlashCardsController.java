@@ -26,7 +26,8 @@ public class FlashCardsController {
     }
 
     //CREATE
-    @RequestMapping(value = "/api/cards", method = RequestMethod.POST)
+    @PreAuthorize("permitAll")
+    @RequestMapping(value = "/cards", method = RequestMethod.POST)
     public Cards addCard(@RequestBody Cards card){
         if(card !=null){
             dao.save(card);
@@ -34,18 +35,21 @@ public class FlashCardsController {
         } return null;
     }
     //REQUEST
-    @RequestMapping(path = "/api/cards/{card_id}", method = RequestMethod.GET)
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/cards/{card_id}", method = RequestMethod.GET)
     public Cards getCard(@PathVariable Long card_id) throws CardNotFoundException{
         return dao.get(Math.toIntExact(card_id));
     }
     //UPDATE
-    @RequestMapping(path = "/api/cards/{id}", method = RequestMethod.PUT)
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/cards/{card_id}", method = RequestMethod.PUT)
     public boolean updateCard(@Valid @RequestBody Cards card, @PathVariable Long card_id) throws CardNotFoundException{
        return dao.update(Math.toIntExact(card_id), card);
     }
     //DELETE
+    @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/api/cards/{card_id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/cards/{card_id}", method = RequestMethod.DELETE)
     public void deleteCard(@PathVariable Long id) throws CardNotFoundException{
         dao.delete(Math.toIntExact(id));
     }

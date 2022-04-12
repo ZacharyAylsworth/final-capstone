@@ -20,7 +20,7 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     @Override
     public List<Cards> list() {
         List<Cards> cards = new ArrayList<>();
-        String sql = "SELECT card_id, card_front, card_back, category_id, card_difficulty_id" +
+        String sql = "SELECT card_id, deck_id, card_back, category_id, card_difficulty_id " +
                 "FROM cards";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -33,7 +33,7 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     @Override
     public Cards get(int card_id) {
         Cards card = null;
-        String sql = "SELECT card_id, card_front, card_back, category_id, card_difficulty_id" +
+        String sql = "SELECT card_id, deck_id, card_front, card_back, category_id, card_difficulty_id " +
                 "FROM cards WHERE card_id = ? ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, card_id);
         if(results.next()){
@@ -65,6 +65,7 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     private Cards mapRowToCard(SqlRowSet rowSet) {
         Cards c = new Cards();
         c.setCardID(rowSet.getLong("card_id"));
+        c.setDeckID(rowSet.getLong("deck_id"));
         c.setFront(rowSet.getString("card_front"));
         c.setBack(rowSet.getString("card_back"));
         c.setCategoryID(rowSet.getLong("category_id"));

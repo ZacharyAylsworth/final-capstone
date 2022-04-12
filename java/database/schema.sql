@@ -45,4 +45,9 @@ CREATE TABLE cards (
 
 	CONSTRAINT FK_cards FOREIGN KEY (category_id) references categories (category_id)
 );
+
+INSERT INTO decks (deck_id, deck_name, card_id) VALUES (1, 'decks', 1);
+INSERT INTO categories (category_id, category_name) VALUES (1, 'category');
+INSERT INTO cards (card_id, deck_id, card_front, card_back, category_id, card_difficulty_id) VALUES (1,1, 'front', 'back', 1, 1);
+
 COMMIT TRANSACTION;
