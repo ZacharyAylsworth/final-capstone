@@ -15,6 +15,10 @@ public class Cards {
         this.difficultyID = difficultyID;
     }
 
+    public Cards() {
+
+    }
+
     public Long getCardID() {
         return cardID;
     }
