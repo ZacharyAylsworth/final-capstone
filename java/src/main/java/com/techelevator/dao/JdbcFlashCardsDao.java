@@ -4,10 +4,11 @@ import com.techelevator.model.CardNotFoundException;
 import com.techelevator.model.Cards;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class JdbcFlashCardsDao implements FlashCardsDao {
     private JdbcTemplate jdbcTemplate;
 
