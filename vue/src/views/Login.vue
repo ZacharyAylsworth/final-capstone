@@ -74,3 +74,68 @@ export default {
   }
 };
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=BIZ+UDPMincho&family=Coming+Soon&family=Permanent+Marker&family=Rubik+Microbe&family=Rubik+Puddles&family=Square+Peg&display=swap');
+.h3 {
+  text-align: center;
+  color: black;
+  font-family: 'Rubik Puddles', cursive;
+}
+
+#webpage_background {
+  background-color: #245680;
+  height: 100vh;
+}
+
+.whole_background {
+  color: rgb(15, 155, 26);
+  display: block;
+  margin: 8px;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 20% auto;
+    background: #fff;
+    padding: 5px; 
+    border-radius: 10px;
+}
+
+.form-control {
+  width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+
+.sr-only {
+  color: white;
+}
+
+.btn {
+  cursor: pointer;
+    height: 35px;
+    margin: 50px;
+    width: 75%;
+    padding: 5px;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #abff10, #ffad06);
+}
+
+#login {
+  margin: 10%
+}
+
+</style>

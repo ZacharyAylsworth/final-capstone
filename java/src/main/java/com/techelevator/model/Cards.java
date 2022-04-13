@@ -2,17 +2,25 @@ package com.techelevator.model;
 
 public class Cards {
     private Long cardID;
+    private Long deckID;
     private String front;
     private String back;
     private Long categoryID;
     private Long difficultyID;
 
-    public Cards(Long cardID, String front, String back, Long categoryID, Long difficultyID) {
+
+
+    public Cards(Long cardID, Long deckID, String front, String back, Long categoryID, Long difficultyID) {
         this.cardID = cardID;
+        this.deckID = deckID;
         this.front = front;
         this.back = back;
         this.categoryID = categoryID;
         this.difficultyID = difficultyID;
+    }
+
+    public Cards() {
+
     }
 
     public Long getCardID() {
@@ -53,5 +61,13 @@ public class Cards {
 
     public void setDifficultyID(Long difficultyID) {
         this.difficultyID = difficultyID;
+    }
+
+    public Long getDeckID() {
+        return deckID;
+    }
+
+    public void setDeckID(Long deckID) {
+        this.deckID = deckID;
     }
 }
