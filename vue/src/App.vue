@@ -9,7 +9,15 @@
 </template>
 
 <script>
+import Login from '@/views/Login'
+import Logout from '@/views/Logout'
 
+export default {
+  views: {
+    Login,
+    Logout
+  }
+};
 </script>
 
 <style>

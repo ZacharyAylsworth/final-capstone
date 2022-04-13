@@ -1,11 +1,14 @@
 <template>
   <div>
-
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" type="text" class="form-control" v-model="card.title" autocomplete="off" />
+    </div>
   </div>
 </template>
 
 <script>
-import flashService from "../services/FlashService";
+import flashService from "../services/FlashService"; 
 
 export default {
     name: "card-form",
@@ -32,15 +35,15 @@ export default {
     },
 
     methods: {
-            submitForm() {
-      const newCard = {
-        cardId: Number(this.$route.params.cardId),
-        front: this.card.front,
-        back: this.card.back,
-        status: this.card.status,
-        tag: this.card.tag,
-        userID: Number(this.$route.params.userID)
-      };
+      submitForm() {
+        const newCard = {
+          cardID: Number(this.$route.params.cardID),  // this was deckID instead of cardID
+          front: this.card.front,
+          back: this.card.back,
+          status: this.card.status,
+          tag: this.card.tag,
+          userID: Number(this.$route.params.userID)
+        };
 
       if (this.cardID === 0) {
         // add
@@ -48,7 +51,7 @@ export default {
           .addCard(newCard)
           .then(response => {
             if (response.status === 201) {
-              this.$router.push(`/board/${newCard.boardId}`);
+              this.$router.push(`/decks/${newCard.cardID}`);
             }
           })
           .catch(error => {
@@ -56,14 +59,11 @@ export default {
           });
       } else {
         // update
-        newCard.id = this.cardID;
-        newCard.avatar = this.card.avatar;
-        newCard.date = this.card.date;
         flashService
           .updateCard(newCard)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/board/${newCard.boardId}`);
+              this.$router.push(`/decks/${newCard.cardID}`);
             }
           })
           .catch(error => {
