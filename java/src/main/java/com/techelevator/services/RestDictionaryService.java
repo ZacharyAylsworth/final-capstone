@@ -5,22 +5,24 @@ import org.springframework.web.client.RestTemplate;
 
 
 
-public class RestDictionaryService implements DictionaryService {
+public class RestDictionaryService /*implements DictionaryService*/ {
     private static final String API_BASE_URL = "https://wordsapiv1.p.mashape.com/words/";
     private final RestTemplate restTemplate = new RestTemplate();
 
 
-    public DictionaryApi getWord(String word) {
+    public DictionaryApi[] getWordAndDefinitionsByWord(String word) {
         return restTemplate.getForObject(API_BASE_URL + word + "/definitions" , DictionaryApi[].class);
     }
-// word is a string and rest template is returning an object.
-// this is probably why its getting mad at the interface.
-// the interface is listing a broken method.
+
+//    public DictionaryApi getWithCustomQuery() {
+//    //use this as the copy-paste method?
+//
+//    }
 
 
-//    ExchangeRates response = restTemplate.getForObject(
-//            "https://api.exchangerate-api.com/v4/latest/USD",
-//            ExchangeRates.class);
+// the interface is listing an empty method. prob why its mad
+    //interfaces in other homeworks don't exist?? do I need one?
+
 
 //    @Override
 //    public CatPic getPic() {

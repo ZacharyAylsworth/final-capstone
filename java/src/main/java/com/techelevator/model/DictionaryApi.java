@@ -1,13 +1,31 @@
 package com.techelevator.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Map;
 
 public class DictionaryApi {
 
+    private String newWord;
+    @JsonProperty("word")
     private String word;
+    @JsonProperty("definitions")
     private Map<String, String> definitions;
 
+
+    //METHODS
+//    public DictionaryApi getWordAndDefinitionsByWord() {
+//
+//
+//
+//    }
+
+
+
+//    public
+
+    //constructors
     public DictionaryApi() {
         //empty
     }
@@ -17,6 +35,8 @@ public class DictionaryApi {
         this.definitions = definitions;
     }
 
+
+    //setters + getters
     public void setWord(String word) {
         this.word = word;
     }
