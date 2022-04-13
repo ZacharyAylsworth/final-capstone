@@ -19,9 +19,33 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    decks: [],
+    card: {
+      front: '',
+      back: '',
+      status: '',  
+    }
   },
   mutations: {
+    SET_DECKS(state, data) {
+      state.decks = data;
+    },
+    // SET_DECK_CARDS(state, data) {
+    //   state.deckCards = data;  
+    // },
+    SET_CURRENT_CARD(state, data) {
+      state.card = data;
+    },
+    DELETE_DECK(state, deckIdToDelete) {
+      state.decks = state.decks.filter((deck) => {
+        return deck.id != deckIdToDelete;
+      });
+    },
+    // UPDATE_CARD_STATUS(state, data) {
+    //   const cardToUpdate = state.deckCards.find(bc => bc.id === data.cardId);
+    //   cardToUpdate.status = data.status;
+    // },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);

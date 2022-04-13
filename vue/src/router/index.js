@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import AddFlashCard from '../views/AddFlashCard.vue'
 
 Vue.use(Router)
 
@@ -26,7 +27,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: false /*should be true*/
+        requiresAuth: true  // should be true
       }
     },
     {
@@ -51,6 +52,14 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/cards',    // '/decks/:deckID/card/create'
+      name: 'AddFlashCard',
+      component: AddFlashCard,
+      meta: {
+        requiresAuth: false   // true
       }
     },
   ]
