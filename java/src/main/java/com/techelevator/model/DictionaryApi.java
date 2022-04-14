@@ -11,7 +11,7 @@ public class DictionaryApi {
     @JsonProperty("word")
     private String word;
     @JsonProperty("definitions")
-    private Map<String, String> definitions;
+    private DefinitionAPI[] definitions;
 
 
     //METHODS
@@ -30,7 +30,7 @@ public class DictionaryApi {
         //empty
     }
 
-    public DictionaryApi(String word, Map<String, String> definitions) {
+    public DictionaryApi(String word, DefinitionAPI[] definitions) {
         this.word = word;
         this.definitions = definitions;
     }
@@ -45,7 +45,7 @@ public class DictionaryApi {
         return word;
     }
 
-    public Map<String, String> getDefinitions() {
+    public DefinitionAPI[] getDefinitions() {
         return definitions;
     }
 }

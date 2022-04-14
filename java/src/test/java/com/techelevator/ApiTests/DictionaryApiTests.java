@@ -1,24 +1,27 @@
 package com.techelevator.ApiTests;
 
 import com.techelevator.model.DictionaryApi;
+import com.techelevator.services.RestDictionaryService;
 import org.junit.Test;
 import org.junit.FixMethodOrder;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
-
+@RunWith(SpringRunner.class)
 public class DictionaryApiTests {
 
     @Test
     public void ProvideDefinition_GivenWord() {
         //ARRANGE
-        DictionaryApi dictionaryApi = new DictionaryApi();
+        RestDictionaryService rdService = new RestDictionaryService();
 
         //ACT
-        String word = dictionaryApi.getWord("hello");
+        DictionaryApi wordObject = rdService.listWordAndDefinitions("hello");
 
         //ASSERT
-        assertEquals();
+        assertEquals("hello", wordObject.getWord());
 
     }
 
