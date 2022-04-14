@@ -10,6 +10,7 @@ public class Deck {
         this.card_id = card_id;
         this.deck_name = deck_name;
     }
+    public Deck() {}
 
     public Long getDeck_id() {
         return deck_id;
