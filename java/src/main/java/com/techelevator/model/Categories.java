@@ -9,6 +9,7 @@ public class Categories {
         this.category_name = category_name;
 
     }
+    public Categories(){}
 
     public Long getCategory_ID() {
         return category_ID;

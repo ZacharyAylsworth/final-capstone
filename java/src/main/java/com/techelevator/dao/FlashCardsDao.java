@@ -8,13 +8,13 @@ public interface FlashCardsDao {
 
     List<Cards> list();
 
-    Cards get(int card_id);
+    Cards getCard(Long card_id);
 
-    boolean save(Cards cardToSave);
+    boolean saveCard(Cards cardToSave);
 
-    boolean update(int id, Cards card);
+    boolean updateCard(Long card_id, Cards card);
 
-    boolean delete(int id);
+    boolean deleteCard(Long card_id);
 
 
 }

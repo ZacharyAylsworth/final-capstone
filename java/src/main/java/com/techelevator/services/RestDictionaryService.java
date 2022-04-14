@@ -5,12 +5,17 @@ import org.springframework.web.client.RestTemplate;
 
 
 
-public class RestDictionaryService /*implements DictionaryService*/ {
-    private static final String API_BASE_URL = "https://wordsapiv1.p.mashape.com/words/";
+public class RestDictionaryService implements DictionaryService {
+    private static final String API_BASE_URL = "https://wordsapiv1.p.mashape.com/words";
     private final RestTemplate restTemplate = new RestTemplate();
 
 
-    public DictionaryApi[] getWordAndDefinitionsByWord(String word) {
+//    public DictionaryApi[] getWordAndDefinitionsByWord(String word) {
+//        return restTemplate.getForObject(API_BASE_URL + word + "/definitions" , DictionaryApi[].class);
+//    }
+
+    @Override
+    public DictionaryApi[] listWordAndDefinitions(String word) {
         return restTemplate.getForObject(API_BASE_URL + word + "/definitions" , DictionaryApi[].class);
     }
 

@@ -31,9 +31,9 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     }
 
     @Override
-    public Cards get(int card_id) {
+    public Cards getCard(Long card_id) {
         Cards card = null;
-        String sql = "SELECT card_id, deck_id, card_front, card_back, category_id, card_difficulty_id " +
+        String sql = "SELECT * " +
                 "FROM cards WHERE card_id = ? ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, card_id);
         if(results.next()){
@@ -45,22 +45,22 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     }
 
     @Override
-    public boolean save(Cards cardToSave) {
+    public boolean saveCard(Cards cardToSave) {
         String sql = "INSERT INTO cards (card_id, card_front, card_back, category_id, card_difficulty_id) " +
                 "VALUES (DEFAULT, ?, ?, ?, ?)";
         return jdbcTemplate.update(sql, cardToSave.getFront(), cardToSave.getBack(), cardToSave.getCategoryID(), cardToSave.getDifficultyID()) == 1;
     }
 
     @Override
-    public boolean update(int id, Cards changedCard) {
+    public boolean updateCard(Long card_id, Cards changedCard) {
         String sql = "UPDATE cards SET card_front = ?, card_back = ?, category_id = ?, card_difficulty_id = ? WHERE card_id = ?";
-        return jdbcTemplate.update(sql, changedCard.getFront(), changedCard.getBack(), changedCard.getCategoryID(), changedCard.getDifficultyID(), id) == 1;
+        return jdbcTemplate.update(sql, changedCard.getFront(), changedCard.getBack(), changedCard.getCategoryID(), changedCard.getDifficultyID(), card_id) == 1;
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean deleteCard(Long card_id) {
         String sql = "DELETE FROM cards WHERE card_id = ?";
-        return jdbcTemplate.update(sql, id) == 1;
+        return jdbcTemplate.update(sql, card_id) == 1;
     }
     private Cards mapRowToCard(SqlRowSet rowSet) {
         Cards c = new Cards();
