@@ -1,0 +1,17 @@
+{
+    "decks": [
+        {
+            "id": 1001,
+            "title": "Elementary Dictionary"
+        }
+    ],
+    "cards": [
+        {
+            "deckID": 1001,
+            "front": "Box",
+            "back": "A container with a flat base and sides, typically square or rectangular and having a lid.", 
+            "userID": 1001,
+            "id": 1001
+    }
+]
+}
