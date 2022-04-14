@@ -5,6 +5,6 @@ import com.techelevator.model.DictionaryApi;
 
 public interface DictionaryService {
 
-    DictionaryApi[] listWordAndDefinitions(String word);
+    DictionaryApi listWordAndDefinitions(String word);
 
 }
