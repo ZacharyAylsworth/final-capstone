@@ -13,11 +13,16 @@
 <script>
 import Login from '@/views/Login'
 import Logout from '@/views/Logout'
+import Home from '@/views/Home'
+=======
+import DecksList from '@/views/DecksList'
 
 export default {
   views: {
     Login,
-    Logout
+    Logout,
+    Home,
+    DecksList
   }
 };
 </script>

@@ -190,4 +190,12 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     }
 
 
+
+    public boolean saveCardObserving() {
+        RestDictionaryService rdService = new RestDictionaryService();
+        DictionaryApi dictionaryApi = rdService.listWordAndDefinitions("observing");
+        String sql = "INSERT INTO cards (card_id, deck_id , card_front, card_back, category_id, card_difficulty_id) " +
+                "VALUES (DEFAULT, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, 1, "observing", dictionaryApi.getDefinitions()[0].getDefinition(), 1, 1) == 1;
+    }
 }

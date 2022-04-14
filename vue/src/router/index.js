@@ -27,7 +27,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true  // should be true
+        requiresAuth: false  // should be true
       }
     },
     {
@@ -79,9 +79,3 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
-
-
-
-
-
-//Extra code for test merge

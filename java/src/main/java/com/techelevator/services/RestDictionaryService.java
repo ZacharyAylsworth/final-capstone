@@ -9,11 +9,6 @@ public class RestDictionaryService implements DictionaryService {
     private static final String API_BASE_URL = "https://wordsapiv1.p.rapidapi.com/words/";
     private final RestTemplate restTemplate = new RestTemplate();
 
-
-//    public DictionaryApi[] getWordAndDefinitionsByWord(String word) {
-//        return restTemplate.getForObject(API_BASE_URL + word + "/definitions" , DictionaryApi[].class);
-//    }
-
     @Override
     public DictionaryApi listWordAndDefinitions(String word) {
         HttpHeaders headers = new HttpHeaders();
@@ -24,17 +19,6 @@ public class RestDictionaryService implements DictionaryService {
         return response.getBody();
         //return restTemplate.getForObject(API_BASE_URL + word + "/definitions" , DictionaryApi[].class);
     }
-
-//    public DictionaryApi getWithCustomQuery() {
-//    //use this as the copy-paste method?
-//
-//    }
-
-
-// the interface is listing an empty method. prob why its mad
-    //interfaces in other homeworks don't exist?? do I need one?
-
-
 }
 
 
