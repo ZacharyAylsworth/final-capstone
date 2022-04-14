@@ -13,12 +13,12 @@ CREATE SEQUENCE seq_user_id
   NO MINVALUE
   CACHE 1;
 
-  CREATE TABLE difficulty (
+CREATE TABLE difficulty (
   difficulty_id int primary key,
   difficulty_name varchar(20)
   );
 
-  CREATE TABLE decks (
+CREATE TABLE decks (
     deck_id int primary key,
     deck_name varchar(200) NOT NULL,
     card_id int NOT NULL
