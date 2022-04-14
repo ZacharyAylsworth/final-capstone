@@ -56,11 +56,11 @@ public class JdbcCategoriesDao implements CategoriesDao {
         return jdbcTemplate.update(sql, changedCategory.getCategory_name(), category_id) == 1;
     }
 
-    @Override
-    public boolean deleteCategory(Long category_id) {
-        String sql = "DELETE FROM categories WHERE category_id = ?";
-        return jdbcTemplate.update(sql, category_id) == 1;
-    }
+//    @Override
+//    public boolean deleteCategory(Long category_id) {
+//        String sql = "DELETE FROM categories WHERE category_id = ?";
+//        return jdbcTemplate.update(sql, category_id) == 1;
+//    }
 
     private Categories mapRowToCategories(SqlRowSet rowSet) {
         Categories c = new Categories();

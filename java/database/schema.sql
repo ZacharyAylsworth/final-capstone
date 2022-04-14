@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS cards;
 DROP TABLE IF EXISTS decks;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS difficulty;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -11,6 +12,11 @@ CREATE SEQUENCE seq_user_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
+
+  CREATE TABLE difficulty (
+  difficulty_id int primary key,
+  difficulty_name varchar(20)
+  );
 
   CREATE TABLE decks (
     deck_id int primary key,
@@ -45,9 +51,13 @@ CREATE TABLE cards (
 
 	CONSTRAINT FK_cards FOREIGN KEY (category_id) references categories (category_id)
 );
-
+--dummy data
 INSERT INTO decks (deck_id, deck_name, card_id) VALUES (1, 'decks', 1);
 INSERT INTO categories (category_id, category_name) VALUES (1, 'category');
 INSERT INTO cards (card_id, deck_id, card_front, card_back, category_id, card_difficulty_id) VALUES (1,1, 'front', 'back', 1, 1);
+--real data
+INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (1, 'Easy');
+INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (2, 'Medium');
+INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (3, 'Hard');
 
 COMMIT TRANSACTION;
