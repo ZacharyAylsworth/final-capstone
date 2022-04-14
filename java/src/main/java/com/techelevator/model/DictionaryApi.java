@@ -13,18 +13,6 @@ public class DictionaryApi {
     @JsonProperty("definitions")
     private DefinitionAPI[] definitions;
 
-
-    //METHODS
-//    public DictionaryApi getWordAndDefinitionsByWord() {
-//
-//
-//
-//    }
-
-
-
-//    public
-
     //constructors
     public DictionaryApi() {
         //empty
@@ -37,8 +25,8 @@ public class DictionaryApi {
 
 
     //setters + getters
-    public void setWord(String word) {
-        this.word = word;
+    public String setWord(String word) {
+        return word;
     }
 
     public String getWord() {
