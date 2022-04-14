@@ -14,5 +14,5 @@ public interface CategoriesDao {
 
     boolean updateCategory(Long categories_id, Categories categories);
 
-    boolean deleteCategory(Long categories_id);
+//    boolean deleteCategory(Long categories_id);
 }

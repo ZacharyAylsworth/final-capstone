@@ -51,12 +51,12 @@ public class CategoriesController {
     public boolean updateCategory(@Valid @RequestBody Categories category, @PathVariable Long category_id) throws CategoryNotFoundException{
         return dao.updateCategory(category_id, category);
     }
-    //DELETE
-    @PreAuthorize("isAuthenticated()")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/categories/{category_id}", method = RequestMethod.DELETE)
-    public void deleteCategory(@PathVariable Long category_id) throws CategoryNotFoundException{
-        dao.deleteCategory(category_id);
-    }
+//    //DELETE
+//    @PreAuthorize("isAuthenticated()")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    @RequestMapping(path = "/categories/{category_id}", method = RequestMethod.DELETE)
+//    public void deleteCategory(@PathVariable Long category_id) throws CategoryNotFoundException{
+//        dao.deleteCategory(category_id);
+//    }
 
 }
