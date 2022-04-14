@@ -79,9 +79,3 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
-
-
-
-
-
-//Extra code for test merge
