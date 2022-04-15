@@ -1,17 +1,21 @@
 <template>
-  <form v-on:submit.prevent="submitForm" class="cardForm" v-if="!isLoading">
-    <div class="form-group">
-      <label for="question">Question:</label>
-      <input id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
+  <div id="cardFormContainer">
+    <form v-on:submit.prevent="submitForm" class="cardForm" v-if="!isLoading">
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <input id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label for="answer">Answer:</label>
+        <textarea id="answer" class="form-control" v-model="card.answer"></textarea>
+      </div>
+      <button class="btn btn-submit">Submit</button>
+      <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
+    </form>
     </div>
-    <div class="form-group">
-      <label for="answer">Answer:</label>
-      <textarea id="answer" class="form-control" v-model="card.answer"></textarea>
-    </div>
-    <button class="btn btn-submit">Submit</button>
-    <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
-  </form>
 </template>
+
+
 
 <script>
 import flashService from "../services/FlashService"; 
@@ -87,5 +91,13 @@ export default {
 </script>
 
 <style>
-
+#cardFormContainer {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 10% auto;
+    background: #fff;
+    padding: 5px; 
+    border-radius: 10px;
+}
 </style>
