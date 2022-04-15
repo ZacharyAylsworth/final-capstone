@@ -18,10 +18,10 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.model.LoginDTO;
 import com.techelevator.model.RegisterUserDTO;
 import com.techelevator.model.User;
-import com.techelevator.model.UserAlreadyExistsException;
+import com.techelevator.model.exceptions.UserAlreadyExistsException;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
-@PreAuthorize("isAuthenticated()")
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -35,7 +35,7 @@ public class AuthenticationController {
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userDao = userDao;
     }
-    @PreAuthorize("isAuthenticated()")
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
 
@@ -52,7 +52,7 @@ public class AuthenticationController {
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
     }
-    @PreAuthorize("isAuthenticated()")
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(@Valid @RequestBody RegisterUserDTO newUser) {

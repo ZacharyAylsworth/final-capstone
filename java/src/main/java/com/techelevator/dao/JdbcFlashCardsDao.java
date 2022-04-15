@@ -1,8 +1,9 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.CardNotFoundException;
-import com.techelevator.model.Cards;
-import com.techelevator.model.DictionaryApi;
+import com.techelevator.model.*;
+import com.techelevator.model.exceptions.CardNotFoundException;
+import com.techelevator.model.exceptions.CategoryNotFoundException;
+import com.techelevator.model.exceptions.DeckNotFoundException;
 import com.techelevator.services.RestDictionaryService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -63,7 +64,11 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     public boolean deleteCard(Long card_id) {
         String sql = "DELETE FROM cards WHERE card_id = ?";
         return jdbcTemplate.update(sql, card_id) == 1;
+
     }
+
+
+
     private Cards mapRowToCard(SqlRowSet rowSet) {
         Cards c = new Cards();
         c.setCardID(rowSet.getLong("card_id"));
