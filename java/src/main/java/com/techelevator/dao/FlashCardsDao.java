@@ -17,12 +17,7 @@ public interface FlashCardsDao {
     boolean updateCard(Long card_id, Cards card);
 
     boolean deleteCard(Long card_id);
-
-<<<<<<< HEAD
-=======
-    //////////////////////////
-
->>>>>>> 72a9da197ad7c5b44e208e259169e6c97e40e767
+    
     boolean saveCardObserving();
 
     boolean saveCardHelpful();
