@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Add New Flash Card</h1>
+      <h1> Add New Flash Card</h1>
       <card-form />
   </div>
 </template>
@@ -16,5 +16,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

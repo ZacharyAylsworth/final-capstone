@@ -1,6 +1,6 @@
 <template>
   <div id="sideNav">
-    <h1>Flash Card Decks</h1>
+    <h1 id="h1Text">Flash Card Decks</h1>
     <div class="decks">
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
       <div class="loading" v-if="isLoading">
@@ -21,8 +21,8 @@
         <input type="text" class="form-control" v-model="newDeck.title" />
         Background Color:
         <input type="text" class="form-control" v-model="newDeck.backgroundColor" />
-        <button class="btn btn-submit">Save</button>
-        <button class="btn btn-cancel" v-on:click="showAddDeck = !showAddDeck">Cancel</button>
+        <button class="btn btn-submit" id="sub">Save</button>
+        <button class="btn btn-cancel" v-on:click="showAddDeck = !showAddDeck" id="cnl">Cancel</button>
       </form>
     </div>
   </div>
@@ -51,6 +51,10 @@ methods: {
 
 
 <style scoped>
+
+#h1Text{
+  text-align: center;
+}
 #sideNav {
   height: 100%;
   width: 20%;
@@ -62,6 +66,10 @@ methods: {
   padding-bottom: 20px;
   overflow-x: hidden;
   border-right: solid lightgrey 1px;
+}
+
+#sub {
+  margin: 10% auto;
 }
 
 </style>

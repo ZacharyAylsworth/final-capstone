@@ -86,7 +86,7 @@ export default {
 }
 
 #webpage_background {
-  background-color: #fb00ff;
+  background-color: #06507a;
   height: 100vh;
 }
 
