@@ -9,7 +9,7 @@
         <label for="answer">Answer:</label>
         <textarea id="answer" class="form-control" v-model="card.answer"></textarea>
       </div>
-      <button class="btn btn-submit">Submit</button>
+      <button class="btn btn-submit" id="submitButton">Submit</button>
       <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
     </form>
     </div>
@@ -99,5 +99,9 @@ export default {
     background: #fff;
     padding: 5px; 
     border-radius: 10px;
+}
+
+#submitButton {
+  margin:8% auto
 }
 </style>

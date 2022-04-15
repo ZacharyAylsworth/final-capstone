@@ -1,32 +1,37 @@
 <template>
 <div>
-  <div id="sideNav"></div>
-  <div class="home">
-   <div id="editDeckBtn"> Edit Deck </div> 
-   <div id="editAddBtn"> Add Button </div>
-    
-    <h1 id="heading">Home</h1>
-    <p id="heading_text">You must be authenticated to see this / Welcome Back --USER NAME HERE --</p>
-      <div id="main_page">
-        
+  <div id="sideNav">
+    <div type="submit" id="vocab_one"> Vocab Button</div>
 
-          <div id="page_container">
-            <div id="upper_row">
-              <button type="submit" class="btnA">Add Card</button>
-              <button type="submit" class="btnS">Sign in</button>
-            </div>
-            <div id="lower_row">
-              <button type="submit" class="btn1">Saved Deck 1</button>
-              <button type="submit" class="btn2">Saved Deck 2</button>
-              <button type="submit" class="btn3">Saved Deck 2</button>
+  </div>
+      <div class="home">
+        
+      
+        
+        <h1 id="heading">Main Page</h1>
+        <p id="heading_text">You must be authenticated to see this / Welcome Back --USER NAME HERE --</p>
+          <div id="main_page">
+              <div id="header_row">
+                <div type="submit" class="editAddBtn"> Add Button </div>
+                <div type="submit" class="editDeckBtn"> Edit Deck </div> 
+              </div>
             
+
+              <div id="page_container">
+                  <div id="upper_row">
+                    <button type="submit" class="btnA">Add Card</button>
+                    <button type="submit" class="btnS">Edit Card</button>
+                  </div>
+                  <div id="lower_row">
+                    <button type="submit" class="btn1">Saved Deck 1</button>
+                    <button type="submit" class="btn2">Saved Deck 2</button>
+                    <button type="submit" class="btn3">Saved Deck 2</button> 
+                </div>
+              </div>
               
           </div>
-          </div>
-          
-        </div>
-  </div>
-  </div>
+      </div>
+</div>
 </template>
 
 <script>
@@ -41,13 +46,59 @@ export default {
   justify-content: flex-end;
 }
 
-#editAddBtn {
+#header_row {
+  text-align: center;    
+  margin: 1% auto;
+  display: flex;
   
 }
 
-#editDeckBtn {
-  padding-left: 75%;
+#vocab_one {
+    cursor: pointer;
+    height: 35px;
+    margin: 50px;
+    width: 75%;
+    padding: 5px;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #abff10, #ffad06);
 }
+
+.editAddBtn {
+  cursor: pointer;
+  height: 40px;
+  width: 10%;
+  padding: 5px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(to right, #abff10, #ffad06);
+
+  text-align: center;
+  margin: 1%auto;
+  padding-top: 20px;
+}
+
+
+.editDeckBtn {
+  cursor: pointer;
+  height: 40px;
+  width: 10%;
+  padding: 5px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(to right, #abff10, #ffad06);
+
+  text-align: center;
+  margin: 1%auto;
+  padding-top: 20px;
+}
+
 
 #sideNav {
   height: 100%;
@@ -65,7 +116,6 @@ export default {
 .home {
   height: 100%;
   width: 118%;
-  position: fixed;
   
   left: 0;
   top: 0;
@@ -87,7 +137,7 @@ export default {
   width: 500px;
     height: 500px;
     position: relative;
-    margin: 10% auto;
+    margin: 4% auto;
     background: rgb(255, 255, 255);
     padding: 5px; 
     border-radius: 10px;
