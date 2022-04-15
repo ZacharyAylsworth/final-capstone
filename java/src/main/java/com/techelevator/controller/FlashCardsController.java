@@ -12,7 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
-public class FlashCardsController {
+public class FlashCardsController{
 
     private FlashCardsDao dao;
     public FlashCardsController(FlashCardsDao dao)
@@ -48,58 +48,6 @@ public class FlashCardsController {
     @RequestMapping(path = "/cards/{card_id}", method = RequestMethod.DELETE)
     public void deleteCard(@PathVariable Long card_id) throws CardNotFoundException{
         dao.deleteCard(card_id);
-    }
-
-    //CREATE Category
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(value = "/categories", method = RequestMethod.POST)
-    public Categories addCategory(@RequestBody Categories category){
-        if(category !=null){
-            dao.saveCategory(category);
-            return category;
-        } return null;
-    }
-    //REQUEST Category
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(path = "/categories/{category_id}", method = RequestMethod.GET)
-    public Categories getCategory(@PathVariable Long category_id) throws CategoryNotFoundException {
-        return dao.getCategory(category_id);
-    }
-    //UPDATE Category
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(path = "/categories/{category_id}", method = RequestMethod.PUT)
-    public boolean updateCategory(@Valid @RequestBody Categories category, @PathVariable Long category_id) throws CategoryNotFoundException{
-        return dao.updateCategory(category_id, category);
-    }
-
-
-    //CREATE deck
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(value = "/decks", method = RequestMethod.POST)
-    public Deck addDeck(@RequestBody Deck deck){
-        if(deck !=null){
-            dao.saveDeck(deck);
-            return deck;
-        } return null;
-    }
-    //REQUEST deck
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(path = "/decks/{deck_id}", method = RequestMethod.GET)
-    public Deck getDeck(@PathVariable Long deck_id) throws DeckNotFoundException {
-        return dao.getDeck(deck_id);
-    }
-    //UPDATE deck
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(path = "/decks/{deck_id}", method = RequestMethod.PUT)
-    public boolean updateDeck(@Valid @RequestBody Deck deck, @PathVariable Long deck_id) throws DeckNotFoundException{
-        return dao.updateDeck(deck_id, deck);
-    }
-    //DELETE deck
-    @PreAuthorize("isAuthenticated()")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/decks/{deck_id}", method = RequestMethod.DELETE)
-    public void deleteDeck(@PathVariable Long deck_id) throws DeckNotFoundException{
-        dao.deleteDeck(deck_id);
     }
 
 }
