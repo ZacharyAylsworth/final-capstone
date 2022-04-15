@@ -3,7 +3,7 @@
     <h1 id="heading">Home</h1>
     <p id="heading_text">You must be authenticated to see this / Welcome Back --USER NAME HERE --</p>
       <div id="main_page">
-        <div id="sideNav"></div>
+        
           <div id="page_container">
             <div id="upper_row">
               <button type="submit" class="btnA">Add Card</button>
