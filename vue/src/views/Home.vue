@@ -1,23 +1,19 @@
 <template>
 <div>
+  <decks-list />
+<div>
   <div id="sideNav">
     <div type="submit" id="vocab_one"> Vocab Button</div>
-
   </div>
       <div class="home">
-        
-      
-        
-        <h1 id="heading">Main Page</h1>
+      <h1 id="heading">Main Page</h1>
         <p id="heading_text">You must be authenticated to see this / Welcome Back --USER NAME HERE --</p>
           <div id="main_page">
               <div id="header_row">
                 <div type="submit" class="editAddBtn"> Add Button </div>
                 <div type="submit" class="editDeckBtn"> Edit Deck </div> 
               </div>
-            
-
-              <div id="page_container">
+            <div id="page_container">
                   <div id="upper_row">
                     <button type="submit" class="btnA">Add Card</button>
                     <button type="submit" class="btnS">Edit Card</button>
@@ -28,15 +24,18 @@
                     <button type="submit" class="btn3">Saved Deck 2</button> 
                 </div>
               </div>
-              
           </div>
       </div>
+     </div>
 </div>
 </template>
 
 <script>
+import DecksList from '@/components/DecksList'
+
 export default {
-  name: "home"
+  name: "home",
+  components: { DecksList }
 };
 </script>
 
@@ -115,7 +114,7 @@ export default {
 
 .home {
   height: 100%;
-  width: 118%;
+  width: 100%;
   
   left: 0;
   top: 0;
