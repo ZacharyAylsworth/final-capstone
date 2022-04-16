@@ -1,14 +1,15 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.*;
+import com.techelevator.model.Categories;
+import com.techelevator.model.exceptions.CategoryNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+
 public class JdbcCategoriesDao implements CategoriesDao {
+
     private JdbcTemplate jdbcTemplate;
 
     public JdbcCategoriesDao(JdbcTemplate jdbcTemplate) {
@@ -70,4 +71,5 @@ public class JdbcCategoriesDao implements CategoriesDao {
 
         return c;
     }
+
 }

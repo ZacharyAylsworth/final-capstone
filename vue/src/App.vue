@@ -19,7 +19,6 @@
 
 
 <script>
-
 import Login from '@/views/Login'
 import Logout from '@/views/Logout'
 import Home from '@/views/Home'

@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CategoriesDao {
 
+    //categories
+
     List<Categories> listCategories();
 
     Categories getCategory(Long categories_id);
@@ -15,4 +17,5 @@ public interface CategoriesDao {
     boolean updateCategory(Long categories_id, Categories categories);
 
 //    boolean deleteCategory(Long categories_id);
+
 }

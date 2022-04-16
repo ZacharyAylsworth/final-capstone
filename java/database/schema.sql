@@ -13,12 +13,12 @@ CREATE SEQUENCE seq_user_id
   NO MINVALUE
   CACHE 1;
 
-  CREATE TABLE difficulty (
+CREATE TABLE difficulty (
   difficulty_id int primary key,
   difficulty_name varchar(20)
   );
 
-  CREATE TABLE decks (
+CREATE TABLE decks (
     deck_id int primary key,
     deck_name varchar(200) NOT NULL,
     card_id int NOT NULL
@@ -54,7 +54,7 @@ CREATE TABLE cards (
 --dummy data
 INSERT INTO decks (deck_id, deck_name, card_id) VALUES (1, 'decks', 1);
 INSERT INTO categories (category_id, category_name) VALUES (1, 'vocabulary');
---INSERT INTO cards (card_id, deck_id, card_front, card_back, category_id, card_difficulty_id) VALUES (1,1, 'front', 'back', 1, 1);
+INSERT INTO cards (card_id, deck_id, card_front, card_back, category_id, card_difficulty_id) VALUES (1,1, 'front', 'back', 1, 1);
 --real data
 INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (1, 'Easy');
 INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (2, 'Medium');

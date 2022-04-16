@@ -1,22 +1,21 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.CardNotFoundException;
-import com.techelevator.model.Cards;
 import com.techelevator.model.Deck;
-import com.techelevator.model.DeckNotFoundException;
+import com.techelevator.model.exceptions.DeckNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+
 public class JdbcDeckDao implements DeckDao {
+
     private JdbcTemplate jdbcTemplate;
 
     public JdbcDeckDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
 
 
     @Override
@@ -73,4 +72,8 @@ public class JdbcDeckDao implements DeckDao {
 
         return d;
     }
+
+
+
+
 }

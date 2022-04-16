@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface DeckDao {
 
+    //decks
+
     List<Deck> listDecks();
 
     Deck getDeck(Long deck_id);
@@ -15,6 +17,4 @@ public interface DeckDao {
     boolean updateDeck(Long deck_id, Deck deck);
 
     boolean deleteDeck(Long deck_id);
-
-
 }
