@@ -80,7 +80,7 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
         return c;
     }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public boolean saveCardObserving() {
         RestDictionaryService rdService = new RestDictionaryService();
