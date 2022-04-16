@@ -23,7 +23,7 @@
 
     <main id="main"> MAIN
       <div id="container_box">
-        <button type="submit" class="main_upper_btn">Add Deck</button>
+        <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
         <button type="submit" class="main_upper_btn">Edit Deck</button>
         <button type="submit" class="main_lower_btn">Deck 1</button>
         <button type="submit" class="main_lower_btn">Deck 2</button>
@@ -47,12 +47,14 @@
 <script>
 import AddFlashCard from '@/views/AddFlashCard'
 import EditCard from '@/views/EditCard'
-import DecksList from '@/components/DecksList'
+import Deck from '@/views/Deck'
 
 export default {
   name: "home",
-  components: {DecksList},
-  views: {AddFlashCard, EditCard}
+  views: { 
+    AddFlashCard,
+    EditCard,
+    Deck}
 };
 </script>
 

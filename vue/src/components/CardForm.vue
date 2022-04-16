@@ -7,12 +7,10 @@
       </div>
       <div class="form-group">
         <label for="answer">Answer:</label>
-        <textarea id="answer" class="form-control" v-model="card.answer"></textarea>
-      </div>
-
-      
+        <input id="answer" class="form-control" v-model="card.answer" autocomplete="off" />
+      </div>      
         <button class="btn btn-submit" id="submitButton">Submit</button>
-        <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</button>
+        <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
     </form>
     </div>
 </template>
@@ -33,8 +31,8 @@ export default {
     data(){
         return {
             card: {
-                front: "",
-                back: "",
+                question: "",
+                answer: "",
                // tag: "", //keyword search?
                 userID: "",
             }
@@ -45,8 +43,8 @@ export default {
       submitForm() {
         const newCard = {
           cardID: Number(this.$route.params.cardID),  // this was deckID instead of cardID
-          front: this.card.front,
-          back: this.card.back,
+          question: this.card.question,
+          answer: this.card.answer,
           // status: this.card.status,
           // tag: this.card.tag,
           userID: Number(this.$route.params.userID)

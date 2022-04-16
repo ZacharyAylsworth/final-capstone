@@ -1,13 +1,13 @@
 <template>
-  <cards-list />
+  <card-detail />
 </template>
 
 <script>
-import CardsList from '@/components/CardsList';
+import CardDetail from '@/components/CardDetail';
 
 export default {
   components: {
-    CardsList
+    CardDetail
   }
 };
 </script>
