@@ -1,4 +1,4 @@
-<!--<template >
+<template >
   <div >
     <h1 id="h1Text"></h1>
     <div class="decks">
@@ -15,12 +15,12 @@
         tag="div"
       >
 
-       <!-- {{ deck.title }}
+        {{ deck.title }}
       </router-link>
 
-      <!--<button class="btn addDeck" v-if="!isLoading && !showAddDeck" v-on:click="showAddDeck = !showAddDeck">Add Deck</button> 
+      <button class="btn addDeck" v-if="!isLoading && !showAddDeck" v-on:click="showAddDeck = !showAddDeck">Add Deck</button> 
       
-      <!--<form v-if="showAddDeck" v-on:submit.prevent="saveNewDeck">
+      <form v-if="showAddDeck" v-on:submit.prevent="saveNewDeck">
         Deck Title:
         <input type="text" class="form-control" v-model="newDeck.title" />
         Background Color:
