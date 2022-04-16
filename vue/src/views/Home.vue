@@ -23,11 +23,11 @@
 
     <main id="main"> MAIN
       <div id="container_box">
-        <button type="submit" class="main_btn">Text</button>
-        <button type="submit" class="main_btn">Text</button>
-        <button type="submit" class="main_btn">Text</button>
-        <button type="submit" class="main_btn">Text</button>
-        <button type="submit" class="main_btn">Text</button>
+        <button type="submit" class="main_upper_btn">Add Deck</button>
+        <button type="submit" class="main_upper_btn">Edit Deck</button>
+        <button type="submit" class="main_lower_btn">Deck 1</button>
+        <button type="submit" class="main_lower_btn">Deck 2</button>
+        <button type="submit" class="main_lower_btn">Deck 3</button>
 
         
       </div>
@@ -115,7 +115,13 @@ margin: auto;
   height: 400px;
 }
 
-.main_btn {
+.main_upper_btn {
+  display: grid;
+  margin: auto;
+  grid-template-rows: 20px;
+}
+
+.main_lower_btn {
   display: grid;
   margin: auto;
   grid-template-rows: 20px;

@@ -28,7 +28,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true  // should be true
+        requiresAuth: false  // should be true
       }
     },
     {
