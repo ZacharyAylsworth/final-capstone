@@ -17,7 +17,7 @@
       
       <div id="buttons">
         <button class="btn btn-submit" id="submitButton">Submit</button>
-        <button class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</button>
+        <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
 
         <div class="dropdown">
           <button class="dropbtn">Deck Selection</button>
@@ -48,24 +48,20 @@ export default {
     data(){
         return {
             card: {
-                front: "",
-                back: "",
+                question: "",
+                answer: "",
                // tag: "", //keyword search?
                 userID: "",
             }
         }
     },
 
-    created(){
-        this.retrieveDecks();
-    },
-
     methods: {
       submitForm() {
         const newCard = {
           cardID: Number(this.$route.params.cardID),  // this was deckID instead of cardID
-          front: this.card.front,
-          back: this.card.back,
+          question: this.card.question,
+          answer: this.card.answer,
           // status: this.card.status,
           // tag: this.card.tag,
           userID: Number(this.$route.params.userID)
@@ -98,13 +94,45 @@ export default {
       }
 
     },
-        retrieveDecks(){                                          // ->  store/index.js
-            flashService.getDecks().then(response => {
-                this.$store.commit("SET_DECKS", response.data);
-            })
-        }
+cancelForm() {
+      this.$router.push(`/deck/${this.$route.params.cardID}`);
+    },
+    handleErrorResponse(error, verb) {
+      if (error.response) {
+        this.errorMsg =
+          "Error " + verb + " card. Response received was '" +
+          error.response.statusText +
+          "'.";
+      } else if (error.request) {
+        this.errorMsg =
+          "Error " + verb + " card. Server could not be reached.";
+      } else {
+        this.errorMsg =
+          "Error " + verb + " card. Request could not be created.";
+      }
     }
-}
+  },
+  created() {
+    if (this.cardID != 0) {
+      flashService
+        .getCard(this.cardID)
+        .then(response => {
+          this.card = response.data;
+          this.isLoading = false;
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            alert(
+              "Card not available. This card may have been deleted or you have entered an invalid card ID."
+            );
+            this.$router.push("/");
+          }
+        });
+    } else {
+      this.isLoading = false;
+    }
+  }
+};
 </script>
 
 <style>
