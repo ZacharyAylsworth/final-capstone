@@ -1,9 +1,6 @@
 <template>
 <div>
-  <decks-list />
-<div>
   <div id="sideNav">
-    <div type="submit" id="vocab_one"> Vocab Button</div>
   </div>
       <div class="home">
       <h1 id="heading">Main Page</h1>
@@ -15,8 +12,8 @@
               </div>
             <div id="page_container">
                   <div id="upper_row">
-                    <button type="submit" class="btnA">Add Card</button>
-                    <button type="submit" class="btnS">Edit Card</button>
+                    <router-link tag='button' class='btnA' type='submit' v-bind:to="{ name: 'AddFlashCard' }">Add Card</router-link>
+                    <router-link tag='button' class='btnS' type='submit' v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
                   </div>
                   <div id="lower_row">
                     <button type="submit" class="btn1">Saved Deck 1</button>
@@ -27,15 +24,18 @@
           </div>
       </div>
      </div>
-</div>
 </template>
 
 <script>
-import DecksList from '@/components/DecksList'
+import AddFlashCard from '@/views/AddFlashCard'
+import EditCard from '@/views/EditCard'
 
 export default {
   name: "home",
-  components: { DecksList }
+  views: {
+    AddFlashCard,
+    EditCard
+  }
 };
 </script>
 
@@ -96,20 +96,6 @@ export default {
   text-align: center;
   margin: 1%auto;
   padding-top: 20px;
-}
-
-
-#sideNav {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  overflow-x: hidden;
-  border-right: solid lightgrey 5px;
 }
 
 .home {

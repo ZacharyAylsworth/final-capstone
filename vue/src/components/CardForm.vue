@@ -39,10 +39,6 @@ export default {
         }
     },
 
-    created(){
-        this.retrieveDecks();
-    },
-
     methods: {
       submitForm() {
         const newCard = {
@@ -81,13 +77,45 @@ export default {
       }
 
     },
-        retrieveDecks(){                                          // ->  store/index.js
-            flashService.getDecks().then(response => {
-                this.$store.commit("SET_DECKS", response.data);
-            })
-        }
+cancelForm() {
+      this.$router.push(`/deck/${this.$route.params.cardID}`);
+    },
+    handleErrorResponse(error, verb) {
+      if (error.response) {
+        this.errorMsg =
+          "Error " + verb + " card. Response received was '" +
+          error.response.statusText +
+          "'.";
+      } else if (error.request) {
+        this.errorMsg =
+          "Error " + verb + " card. Server could not be reached.";
+      } else {
+        this.errorMsg =
+          "Error " + verb + " card. Request could not be created.";
+      }
     }
-}
+  },
+  created() {
+    if (this.cardID != 0) {
+      flashService
+        .getCard(this.cardID)
+        .then(response => {
+          this.card = response.data;
+          this.isLoading = false;
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            alert(
+              "Card not available. This card may have been deleted or you have entered an invalid card ID."
+            );
+            this.$router.push("/");
+          }
+        });
+    } else {
+      this.isLoading = false;
+    }
+  }
+};
 </script>
 
 <style>
