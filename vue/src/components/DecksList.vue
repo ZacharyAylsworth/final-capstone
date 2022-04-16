@@ -14,8 +14,7 @@
         v-else
         tag="div"
       >
-
-      {{ deck.title }}
+        {{ deck.title }}
       </router-link>
 
       <button class="btn addDeck" v-if="!isLoading && !showAddDeck" v-on:click="showAddDeck = !showAddDeck">Add Deck</button> 
