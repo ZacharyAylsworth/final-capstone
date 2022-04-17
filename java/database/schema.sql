@@ -42,7 +42,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 CREATE TABLE cards (
 	card_id serial primary key,
-	deck_id int NOT NULL,
+	deck_id int,
 	card_front varchar(50) NOT NULL,
 	card_back varchar(1000) NOT NULL,
 	category_id int NOT NULL,
