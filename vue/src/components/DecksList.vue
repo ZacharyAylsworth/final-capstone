@@ -1,11 +1,12 @@
-<template>
-  <div id="sideNav">
-    <h1 id="h1Text">Flash Card Decks</h1>
+<template >
+  <div >
+    <h1 id="h1Text"></h1>
     <div class="decks">
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
       <div class="loading" v-if="isLoading">
       </div>
-      <router-link :to="{ name: 'Deck', params: { id: board.id } }"
+
+      <router-link :to="{ name: 'Deck', params: { id: deck.id } }"
         class="decks"
         v-for="deck in this.$store.state.decks"
         v-bind:key="deck.id"
@@ -15,7 +16,9 @@
       >
         {{ deck.title }}
       </router-link>
-      <button class="btn addDeck" v-if="!isLoading && !showAddDeck" v-on:click="showAddDeck = !showAddDeck">Add Deck</button>
+
+      <button class="btn addDeck" v-if="!isLoading && !showAddDeck" v-on:click="showAddDeck = !showAddDeck">Add Deck</button> 
+      
       <form v-if="showAddDeck" v-on:submit.prevent="saveNewDeck">
         Deck Title:
         <input type="text" class="form-control" v-model="newDeck.title" />
@@ -35,16 +38,64 @@
 import flashService from '../services/FlashService';
 
 export default {
-
-
+  data() {
+    return {
+      isLoading: true,
+      showAddDeck: false,
+      newDeck: {
+        title: '',
+        backgroundColor: this.randomBackgroundColor()
+      },
+      errorMsg: ''
+    };
+  },
+  created() {
+    this.retrieveDecks();
+  },
 methods: {
-   retrieveDecks(){
-            flashService.getDecks().then(response => {
-                this.$store.commit("SET_DECKS", response.data);
-            })
-        }                    
+    retrieveDecks(){
+      flashService.getDecks().then(response => {
+        this.$store.commit("SET_DECKS", response.data);
+        this.isLoading = false;
+      });
+    },
+    saveNewDeck() {
+      this.isLoading = true;
+      this.showAddDeck = false;
+
+      flashService.addDecks(this.newDeck).then(response => {
+        if(response.status === 201) {
+          this.retrieveDecks();
+        }
+      }).catch(error => {
+        const verb = 'adding';
+
+        if (error.response) {
+          this.errorMsg =
+              "Error " + verb + " deck. Response received was '" +
+              error.response.statusText +
+              "'.";
+        } else if (error.request) {
+          this.errorMsg =
+            "Error " + verb + " deck. Server could not be reached.";
+        } else {
+          this.errorMsg =
+            "Error " + verb + " deck. Request could not be created.";
+        }
+
+        this.isLoading = false;
+      })
+    },
+    randomBackgroundColor() {
+      return "#" + this.generateHexCode();
+    },
+    generateHexCode() {
+      var bg = Math.floor(Math.random()*16777215).toString(16);
+      if (bg.length !== 6) bg = this.generateHexCode();
+      return bg;
+    }
   }
-}
+}                    
 </script>
 
 
@@ -52,24 +103,31 @@ methods: {
 
 <style scoped>
 
-#h1Text{
+.decks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.deck {
+  color: #f7fafc;
+  border-radius: 10px;
+  padding: 40px;
+  flex: 1;
+  margin: 10px;
   text-align: center;
+  cursor: pointer;
+  width: 60%;
 }
-#sideNav {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  overflow-x: hidden;
-  border-right: solid lightgrey 1px;
-}
-
-#sub {
-  margin: 10% auto;
+.addDeck {
+  color: #f7fafc;
+  border-radius: 10px;
+  background-color: #28a745;
+  font-size: 16px;
+  width: 60%;
+  margin: 10px;
+  padding: 20px;
+  cursor: pointer;
 }
 
 </style>

@@ -93,7 +93,31 @@ export default {
 };
 </script>
 
-<style>
+
+
+
+<style scoped>
+
+.container{
+border: 1px solid;
+}
+
+#register {
+  text-align: center;
+}
+
+.form-control {
+      width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
 .sr-only{
   color: white;
 }

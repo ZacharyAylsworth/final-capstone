@@ -1,222 +1,170 @@
 <template>
-<div>
-  <div id="sideNav">
-    <div type="submit" id="vocab_one"> Vocab Button</div>
+
+  <div id="content">
+    <decks-list />
+    
+    <header id="header">HEADER
+      <div id="header_buttons">
+        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard' }">Add Card</router-link>
+        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
+      </div>
+    </header>
+
+
+
+    <aside id="aside">ASIDE
+      <div id="aside_buttons">
+        <button type="submit" class="aside_btn1">Easy Difficulty</button>
+        <button type="submit" class="aside_btn2">Medium Difficulty</button>
+        <button type="submit" class="aside_btn3">Hard Difficulty</button>
+        
+        
+      </div>
+      
+    </aside>
+
+
+
+    <main id="main"> MAIN
+      <div id="container_box">
+        <div id="main_buttons">
+          <div id="upper_buttons">
+            <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
+            <button type="submit" class="upper_btn2">Edit Deck</button>
+          </div>
+          <div id="lower_buttons"> 
+            <button type="submit" class="lower_btn1">Deck 1</button>
+            <button type="submit" class="lower_btn2">Deck 2</button>
+            <button type="submit" class="lower_btn3">Deck 3</button>
+            
+          </div> 
+        </div>
+      </div>
+    </main>
+
+
+
+    <footer id="footer">FOOTER
+
+    </footer>
 
   </div>
-      <div class="home">
-        
-      
-        
-        <h1 id="heading">Main Page</h1>
-        <p id="heading_text">You must be authenticated to see this / Welcome Back --USER NAME HERE --</p>
-          <div id="main_page">
-              <div id="header_row">
-                <div type="submit" class="editAddBtn"> Add Button </div>
-                <div type="submit" class="editDeckBtn"> Edit Deck </div> 
-              </div>
-            
-
-              <div id="page_container">
-                  <div id="upper_row">
-                    <button type="submit" class="btnA">Add Card</button>
-                    <button type="submit" class="btnS">Edit Card</button>
-                  </div>
-                  <div id="lower_row">
-                    <button type="submit" class="btn1">Saved Deck 1</button>
-                    <button type="submit" class="btn2">Saved Deck 2</button>
-                    <button type="submit" class="btn3">Saved Deck 2</button> 
-                </div>
-              </div>
-              
-          </div>
-      </div>
-</div>
 </template>
 
+
+
 <script>
+import AddFlashCard from '@/views/AddFlashCard'
+import EditCard from '@/views/EditCard'
+import Deck from '@/views/Deck'
+
 export default {
-  name: "home"
+  name: "home",
+  views: { 
+    AddFlashCard,
+    EditCard,
+    Deck}
 };
 </script>
 
+
+
+
 <style scoped>
 
-#heading {
-  justify-content: flex-end;
+#content {
+  display: grid;
+  text-align: center;
+  grid-template-columns: 20% auto;
+  grid-template-rows: 90px 500px 60px;
+  grid-gap: 10px;
+  grid-template-areas: "aside header"
+                       "aside main"
+                       "footer footer";
 }
 
-#header_row {
-  text-align: center;    
-  margin: 1% auto;
+#header {
+border: 3px solid;  
+grid-area: header;
+
+}
+
+#header_buttons {
+display:flex;
+justify-content: center;
+}
+
+.header_btn {
+  display: grid;
+  margin: auto;
+  grid-template-rows: 20px;
+}
+
+#aside {
+  border: 3px solid;
+  grid-area: aside;
+  overflow: hidden;
+}
+
+#aside_buttons {
+  margin: 20px;
   display: flex;
-  
+  flex-direction: column;
+  justify-content: end;
 }
 
-#vocab_one {
-    cursor: pointer;
-    height: 35px;
-    margin: 50px;
-    width: 75%;
-    padding: 5px;
-    display: block;
-    margin: auto;
-    border-radius: 20px;
-    outline: none;
-    background: linear-gradient(to right, #abff10, #ffad06);
+.aside_btn1{
+  display: grid;
+  grid-template-rows: 40px;
+  margin: 28px;
 }
 
-.editAddBtn {
-  cursor: pointer;
-  height: 40px;
-  width: 10%;
-  padding: 5px;
-  display: block;
+.aside_btn2{
+  display: grid;
+  grid-template-rows: 40px;
+  margin: 28px;
+}
+
+.aside_btn3{
+  display: grid;
+  grid-template-rows: 40px;
+  margin: 28px;
+}
+
+#main {
+  border: 3px solid;
+  grid-area: main;
+}
+
+#container_box{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border: 2px solid;
   margin: auto;
-  border-radius: 10px;
-  outline: none;
-  background: linear-gradient(to right, #abff10, #ffad06);
-
-  text-align: center;
-  margin: 1%auto;
-  padding-top: 20px;
+  margin-top: 5px;
+  width: 600px;
+  height: 400px;
 }
 
-
-.editDeckBtn {
-  cursor: pointer;
-  height: 40px;
-  width: 10%;
-  padding: 5px;
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-  outline: none;
-  background: linear-gradient(to right, #abff10, #ffad06);
-
-  text-align: center;
-  margin: 1%auto;
-  padding-top: 20px;
-}
-
-
-#sideNav {
-  height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  overflow-x: hidden;
-  border-right: solid lightgrey 5px;
-}
-
-.home {
-  height: 100%;
-  width: 118%;
-  
-  left: 0;
-  top: 0;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  
-}
-
-#heading {
-  text-align: center;
-}
-
-#heading_text {
-  text-align: center;
-}
-
-#page_container {
-  width: 500px;
-    height: 500px;
-    position: relative;
-    margin: 4% auto;
-    background: rgb(255, 255, 255);
-    padding: 5px; 
-    border-radius: 10px;
-}
-
-#upper_row {
+#upper_buttons {
+  margin: 20px;
   display: flex;
-  margin: 11%;
-  
-}
-
-#lower_row {
+  grid-template-rows: 20px;
   display: flex;
-  margin: 30% auto;
-  
+  justify-content: space-around;
 }
 
-.btnA {
-  cursor: pointer;
-  height: 45px;
-  margin: 50px;
-  width: 35%;
-  padding: 5px;
-  display: block;
-  margin: auto;
-  border-radius: 20px;
-  outline: none;
-  background: linear-gradient(to right, #00ad00, #06cdff);
+#lower_buttons {
+  margin: 20px;
+  display: flex;
+  grid-template-rows: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.btnS {
-cursor: pointer;
-    height: 45px;
-    margin: 50px;
-    width: 35%;
-    padding: 5px;
-    display: block;
-    margin: auto;
-    border-radius: 20px;
-    outline: none;
-    background: linear-gradient(to right, #00ad00, #06cdff);
+#footer {
+border: 3px solid;  
+grid-area: footer;
 }
 
-.btn1 {
-  cursor: pointer;
-  height: 60px;
-  margin: 50px;
-  width: 30%;
-  padding: 5px;
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-  outline: none;
-  background: linear-gradient(to right, #abff10, #ffad06);
-}
-
-.btn2 {
-  cursor: pointer;
-  height: 60px;
-  margin: 50px;
-  width: 30%;
-  padding: 5px;
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-  outline: none;
-  background: linear-gradient(to right, #abff10, #ffad06);
-}
-
-.btn3 {
-  cursor: pointer;
-  height: 60px;
-  margin: 50px;
-  width: 30%;
-  padding: 5px;
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-  outline: none;
-  background: linear-gradient(to right, #abff10, #ffad06);
-}
 </style>
