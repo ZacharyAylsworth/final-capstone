@@ -5,13 +5,13 @@
       <div id="input_lines">     
         <div class="form-group">
           
-          <label for="question">Question:</label>
-          <input id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
+          <label for="front">Front:</label>
+          <input id="front" type="text" class="form-control" v-model="card.front" autocomplete="off" />
         </div>
         <div class="form-group">
           
-          <label for="answer">Answer:</label>
-          <input id="answer" class="form-control" v-model="card.answer" />
+          <label for="back">Back:</label>
+          <input id="back" class="form-control" v-model="card.back" />
         </div>
       </div>
       
@@ -52,8 +52,6 @@ export default {
               deckID: '1',
               front: 'front',
               back: 'back',
-              categoryID: '1',
-              difficultyID: '1', 
             }
         }
     },
@@ -65,8 +63,6 @@ export default {
           deckID: Number(this.$route.params.deckID),
           front: this.card.front,
           back: this.card.back,
-          categoryID: Number(this.$route.params.categoryID),
-          difficultyID: Number(this.$route.params.difficultyID)
         };
 
       if (this.cardID === 0) {
@@ -75,7 +71,7 @@ export default {
           .addCard(newCard)
           .then(response => {
             if (response.status === 201) {
-              this.$router.push(`/decks/${newCard.deckID}`); // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`); 
             }
           })
           .catch(error => {
@@ -87,7 +83,7 @@ export default {
           .updateCard(newCard)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/decks/${newCard.deckID}`);  // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`); 
             }
           })
           .catch(error => {

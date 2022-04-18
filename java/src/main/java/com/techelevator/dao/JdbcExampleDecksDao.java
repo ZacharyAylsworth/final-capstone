@@ -4,11 +4,13 @@ import com.techelevator.model.Cards;
 import com.techelevator.model.DictionaryApi;
 import com.techelevator.services.RestDictionaryService;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcExampleDecksDao implements ExampleDecksDao {
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcFlashCardsDao(JdbcTemplate jdbcTemplate) {
+    public JdbcExampleDecksDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

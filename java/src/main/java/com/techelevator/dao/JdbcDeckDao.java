@@ -4,10 +4,12 @@ import com.techelevator.model.Deck;
 import com.techelevator.model.exceptions.DeckNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcDeckDao implements DeckDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -47,9 +49,15 @@ public class JdbcDeckDao implements DeckDao {
 
     @Override
     public boolean saveDeck(Deck deckToSave) {
-        String sql = "INSERT INTO decks (deck_id, deck_name, card_id) " +
-                "VALUES (DEFAULT, ?, ?)";
-        return jdbcTemplate.update(sql, deckToSave.getDeck_id(), deckToSave.getDeck_name(), deckToSave.getCard_id()) == 1;
+        String sql = "INSERT INTO decks (deck_id, deck_name) " +
+                "VALUES (DEFAULT, ?) returning deck_id";
+        Long deckId = jdbcTemplate.queryForObject(sql, Long.class, deckToSave.getDeck_name());
+        if (deckId == null)
+            return false;
+            else {
+                deckToSave.setDeck_id(deckId);
+                return true;
+        }
     }
 
     @Override
