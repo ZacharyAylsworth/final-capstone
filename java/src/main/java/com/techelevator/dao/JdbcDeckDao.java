@@ -32,7 +32,7 @@ public class JdbcDeckDao implements DeckDao {
         }
         return decks;
     }
-
+//use this to call example decks
     @Override
     public Deck getDeck(Long deck_id) {
         Deck deck = null;
@@ -42,6 +42,11 @@ public class JdbcDeckDao implements DeckDao {
         if (results.next()) {
             deck = mapRowToDeck(results);
         } else {
+            //if deck id <= 3, build with helper method
+//            //then call deck id 1/2/3
+//            String sql = "SELECT * " +
+//                    "FROM decks WHERE deck_id = ? ";
+//            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deck_id);
             throw new DeckNotFoundException();
         }
         return deck;
@@ -82,6 +87,6 @@ public class JdbcDeckDao implements DeckDao {
     }
 
 
-
+//create private helper method to call all cards in deck 1/2/3
 
 }
