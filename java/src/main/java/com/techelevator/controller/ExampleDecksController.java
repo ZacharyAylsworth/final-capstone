@@ -22,9 +22,9 @@ public class ExampleDecksController {
         this.dao = dao;
     }
 
-    @RequestMapping(path = "/cards/", method = RequestMethod.POST)
-    public Cards insertCardObserving(@RequestBody Cards observing) throws CardNotFoundException {
-        return dao.saveCardObserving(observing);
-    }
+//    @RequestMapping(path = "/cards/", method = RequestMethod.POST)
+//    public Cards insertCardObserving(@RequestBody Cards observing) throws CardNotFoundException {
+//        return dao.saveCardObserving(observing);
+//    }
 
 }
