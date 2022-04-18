@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class JdbcExampleDecksDao implements ExampleDecksDao {
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcFlashCardsDao(JdbcTemplate jdbcTemplate) {
+    public JdbcExampleDecksDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
