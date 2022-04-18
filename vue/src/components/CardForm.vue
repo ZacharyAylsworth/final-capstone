@@ -6,12 +6,12 @@
         <div class="form-group">
           
           <label for="question">Question:</label>
-          <textarea id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
+          <input id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
         </div>
         <div class="form-group">
           
           <label for="answer">Answer:</label>
-          <textarea id="answer" class="form-control" v-model="card.answer"></textarea>
+          <input id="answer" class="form-control" v-model="card.answer" />
         </div>
       </div>
       
@@ -48,23 +48,25 @@ export default {
     data(){
         return {
             card: {
-                question: "",
-                answer: "",
-               // tag: "", //keyword search?
-                userID: "",
+              cardID: 1,
+              deckID: '1',
+              front: 'front',
+              back: 'back',
+              categoryID: '1',
+              difficultyID: '1', 
             }
         }
     },
 
     methods: {
       submitForm() {
-        const newCard = {
-          cardID: Number(this.$route.params.cardID),  // this was deckID instead of cardID
-          question: this.card.question,
-          answer: this.card.answer,
-          // status: this.card.status,
-          // tag: this.card.tag,
-          userID: Number(this.$route.params.userID)
+        let newCard = {
+          cardID: Number(this.$route.params.cardID),
+          deckID: Number(this.$route.params.deckID),
+          front: this.card.front,
+          back: this.card.back,
+          categoryID: Number(this.$route.params.categoryID),
+          difficultyID: Number(this.$route.params.difficultyID)
         };
 
       if (this.cardID === 0) {
@@ -73,7 +75,7 @@ export default {
           .addCard(newCard)
           .then(response => {
             if (response.status === 201) {
-              this.$router.push(`/decks/${newCard.cardID}`); // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`); // maybe change to `/cards/${newCard.cardID}`
             }
           })
           .catch(error => {
@@ -85,7 +87,7 @@ export default {
           .updateCard(newCard)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/decks/${newCard.cardID}`);  // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`);  // maybe change to `/cards/${newCard.cardID}`
             }
           })
           .catch(error => {

@@ -23,7 +23,7 @@ export default {
       },
     
     addCard(card) {
-        return axios.post('/cards', card);
+        return axios.post('/flashcards/cards', card);
       },
     
     updateCard(card) {

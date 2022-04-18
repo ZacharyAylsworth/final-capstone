@@ -7,7 +7,7 @@
       </div>
 
       <router-link :to="{ name: 'Deck', params: { id: deck.id } }"
-        class="decks"
+        class="deck"
         v-for="deck in this.$store.state.decks"
         v-bind:key="deck.id"
         v-bind:style="{ 'background-color': deck.backgroundColor }"

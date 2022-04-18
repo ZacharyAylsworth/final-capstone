@@ -23,9 +23,12 @@ export default new Vuex.Store({
     decks: [],
     deckCards: [],
     card: {
-      question: '',
-      answer: '',
-      status: '',  
+      cardID: 1,
+      deckID: 1,
+      front: 'front',
+      back: 'back',
+      categoryID: 1,
+      difficultyID: 1,  
     }
   },
   mutations: {

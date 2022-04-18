@@ -10,8 +10,7 @@
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
       <comments-list :comments="card.comments" />
     </div>
-
-    <div class="deck-actions" v-if="!isLoading">
+      <div class="deck-actions" v-if="!isLoading">
       <router-link :to="{ name: 'Deck', params: { id: $route.params.deckID } }">Back to Deck</router-link>
     </div>
   </div>
