@@ -18,45 +18,43 @@ public interface FlashCardsDao {
 
     boolean deleteCard(Long card_id);
 
-    ////////////////////////////////////////////////////
-//
-//    boolean saveCardObserving(Cards observing);
-//
-//    boolean saveCardHelpful();
-//
-//    boolean saveCardTeamwork();
-//
-//    boolean saveCardAwesome();
-//
-//    boolean saveCardAnnoy();
-//
-//    boolean saveCardEnormous();
-//
-//    boolean saveCardEntrepreneur();
-//
-//    boolean saveCardOxymoron();
-//
-//    boolean saveCardFraudulent();
-//
-//    boolean saveCardPurportedly();
-//
-//    boolean saveCardVendetta();
-//
-//    boolean saveCardMettle();
-//
-//    boolean saveCardDemagogue();
-//
-//    boolean saveCardUbiquitous();
-//
-//    boolean saveCardPejorative();
-//
-//    boolean saveCardProtean();
-//
-//    boolean saveCardTirade();
-//
-//    boolean saveCardAbrogate();
-//
-//    boolean saveCardImpecunious();
+    boolean saveCardObserving();
+
+    boolean saveCardHelpful();
+
+    boolean saveCardTeamwork();
+
+    boolean saveCardAwesome();
+
+    boolean saveCardAnnoy();
+
+    boolean saveCardEnormous();
+
+    boolean saveCardEntrepreneur();
+
+    boolean saveCardOxymoron();
+
+    boolean saveCardFraudulent();
+
+    boolean saveCardPurportedly();
+
+    boolean saveCardVendetta();
+
+    boolean saveCardMettle();
+
+    boolean saveCardDemagogue();
+
+    boolean saveCardUbiquitous();
+
+    boolean saveCardPejorative();
+
+    boolean saveCardProtean();
+
+    boolean saveCardTirade();
+
+    boolean saveCardAbrogate();
+
+    boolean saveCardImpecunious();
 
 
 
