@@ -19,9 +19,9 @@ CREATE TABLE difficulty (
   );
 
 CREATE TABLE decks (
-    deck_id int primary key,
+    deck_id serial primary key,
     deck_name varchar(200) NOT NULL,
-    card_id int NOT NULL
+    card_id int
 );
 
 CREATE TABLE categories (
@@ -44,17 +44,17 @@ CREATE TABLE cards (
 	card_id serial primary key,
 	deck_id int,
 	card_front varchar(50) NOT NULL,
-	card_back varchar(1000) NOT NULL,
-	category_id int NOT NULL,
-	card_difficulty_id int NOT NULL,
+	card_back varchar(1000) NOT NULL
+--	category_id int NOT NULL,
+--	card_difficulty_id int NOT NULL,
 
 
-	CONSTRAINT FK_cards FOREIGN KEY (category_id) references categories (category_id)
+--	CONSTRAINT FK_cards FOREIGN KEY (category_id) references categories (category_id)
 );
 --dummy data
 INSERT INTO decks (deck_id, deck_name, card_id) VALUES (1, 'decks', 1);
 INSERT INTO categories (category_id, category_name) VALUES (1, 'vocabulary');
-INSERT INTO cards (card_id, deck_id, card_front, card_back, category_id, card_difficulty_id) VALUES (1,1, 'front', 'back', 1, 1);
+INSERT INTO cards (card_id, deck_id, card_front, card_back) VALUES (DEFAULT, 1, 'front', 'back');
 --real data
 INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (1, 'Easy');
 INSERT INTO difficulty (difficulty_id, difficulty_name) VALUES (2, 'Medium');
