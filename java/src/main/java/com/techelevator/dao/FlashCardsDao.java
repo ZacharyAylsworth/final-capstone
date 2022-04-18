@@ -18,8 +18,6 @@ public interface FlashCardsDao {
 
     boolean deleteCard(Long card_id);
 
-    //////////////////////////
-
     boolean saveCardObserving();
 
     boolean saveCardHelpful();
