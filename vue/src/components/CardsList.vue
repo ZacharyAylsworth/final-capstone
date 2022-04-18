@@ -2,8 +2,24 @@
   <div>
     <div class="header">
       <h1>{{ title }}</h1>
-      <router-link tag="button" class="btn addNewCard" :to="{ name: 'AddFlashCard', params: {deckID: this.deckId} }" v-if="!isLoading">Add New Card</router-link>
-      <button class="btn btn-cancel deleteDeck" v-if="!isLoading && isLoggedIn" v-on:click="deleteDeck">Delete Deck</button>
+
+          <form v-on:submit.prevent="submitForm" class="cardForm" v-if="!isLoading">
+      
+      <div id="input_lines">     
+        <div class="form-group">
+          
+          <label for="deck-name">Deck Name:</label>
+          <input id="deck-name" type="text" class="form-control" v-model="deck.deck_name" autocomplete="off" />
+        </div>
+      </div>
+      <div id="buttons">
+        <button class="btn btn-submit" id="submitButton">Submit</button>
+        <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
+        </div>
+        </form>
+
+      <router-link tag="button" class="btn addNewCard" :to="{ name: 'AddFlashCard', params: {deckID: this.deckId} }" v-if="!isLoading && deckId">Add New Card</router-link>
+      <button class="btn btn-cancel deleteDeck" v-if="!isLoading && deckId" v-on:click="deleteDeck">Delete Deck</button>
     </div>
     <div class="loading" v-if="isLoading">
     </div>
@@ -11,7 +27,7 @@
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
     </div>
     <div class="deck-actions" v-if="!isLoading">
-      <router-link to="/">Back to Decks</router-link>
+      <router-link to="/">Back to Main</router-link>
     </div>
   </div>
 </template>
@@ -26,10 +42,20 @@ export default {
       title: "",
       deckId: 0,
       isLoading: true,
-      errorMsg: ""
+      errorMsg: "",
+      deck: {
+        deck_name: ""
+      }
     };
   },
   methods: {
+      submitForm(){
+        FlashService.addDecks(this.deck).then(response => {
+          this.deckId = response.data.deck_id;
+        })
+      },
+
+
     retrieveCards() {
       FlashService
         .getCards(this.deckId)
@@ -84,7 +110,8 @@ export default {
   },
   created() {
     this.deckId = this.$route.params.id;
-    this.retrieveCards();
+    if (this.deckId) this.retrieveCards();
+    else this.isLoading = false;
   },
   computed: {
     isLoggedIn() {

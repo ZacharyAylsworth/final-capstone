@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
+@RequestMapping ("/flashcards")
 public class FlashCardsController{
 
     private FlashCardsDao dao;

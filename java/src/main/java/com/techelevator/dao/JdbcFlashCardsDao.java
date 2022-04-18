@@ -51,7 +51,7 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
     public boolean saveCard(Cards cardToSave) {
         String sql = "INSERT INTO cards (card_id, deck_id, card_front, card_back) " +
                 "VALUES (DEFAULT, ?, ?, ?)";
-        return jdbcTemplate.update(sql, cardToSave.getFront(), cardToSave.getBack(), cardToSave.getCategoryID(), cardToSave.getDifficultyID()) == 1;
+        return jdbcTemplate.update(sql, cardToSave.getDeckID(), cardToSave.getFront(), cardToSave.getBack()) == 1;
     }
 
     @Override
