@@ -15,7 +15,7 @@ export default {
       },
     
     getCards(deckID) {
-        return axios.get(`/decks/${deckID}`)
+        return axios.get(`/decks/${deckID}/cards`)
       },
     
     getCard(cardID) {

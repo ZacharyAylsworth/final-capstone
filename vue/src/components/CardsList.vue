@@ -1,6 +1,10 @@
 <template>
   <div>
     <div class="header">
+      <div v-for="card in this.$store.state.deckCards" :key="card.cardID"> 
+        {{ card.cardID }}
+        {{ card.front }}
+      </div>
       <div id="addDeck">
         <h1 >{{ title }}</h1>
       </div>
@@ -62,13 +66,16 @@ export default {
         })
       },
 
+  viewCardDetails(cardID) {
+      this.$router.push(`/decks/${this.deckId}/cards/${cardID}`);
+    },
 
     retrieveCards() {
       FlashService
         .getCards(this.deckId)
         .then(response => {
           this.title = response.data.title;
-          this.$store.commit("DECK", response.data.cards);
+          this.$store.commit("SET_DECK_CARDS", response.data);
           this.isLoading = false;
         })
         .catch(error => {
@@ -116,7 +123,7 @@ export default {
     }
   },
   created() {
-    this.deckId = this.$route.params.id;
+    this.deckId = this.$route.params.deckID;
     if (this.deckId) this.retrieveCards();
     else this.isLoading = false;
   },
