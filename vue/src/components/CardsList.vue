@@ -137,9 +137,17 @@ export default {
 
 
 <style scoped>
+#webpage_background {
+  color: rgb(228, 228, 228);
+  
+  font-size: 25px;
+}
+
 #addDeck {
   display: flex;
   justify-content: center;
+  margin:  -50px auto;
+  
 }
 
 .form-group {
@@ -148,15 +156,17 @@ export default {
   height: 200px;
   position: relative;
   margin: 10% auto;
-  background: rgb(255, 255, 255);
+  background: rgb(70, 70, 70);
   padding: 5px; 
   border-radius: 15px;
+  color: white;
 
 }
 
 #inside-container {
   display: flex;
   justify-content: space-around;
+  padding-top: 20%;
   
 }
 img {

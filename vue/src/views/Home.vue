@@ -17,7 +17,7 @@
         <button type="submit" class="aside_btn1">Deck 1</button>
         <button type="submit" class="aside_btn2">Deck 2</button>
         <button type="submit" class="aside_btn3">Deck 3</button>
-          
+        
       </div>
       
     </aside>
@@ -72,21 +72,32 @@ export default {
 
 <style scoped>
 
+
+
+.home{
+  display: flex;
+
+}
+
 #content {
+  padding-top: 3%;
+  
   display: grid;
   text-align: center;
   grid-template-columns: 20% auto;
   grid-template-rows: 90px 500px 60px;
   grid-gap: 10px;
-  grid-template-areas: "aside header"
+  grid-template-areas: 
+                       "aside header"
                        "aside main"
                        "footer footer";
 }
 
 #header {
-border: 3px solid cyan;  
+border: 2px solid white;  
 grid-area: header;
-background: brown;
+background: rgb(70, 70, 70);
+border-radius: 15px;
 
 
 }
@@ -116,10 +127,11 @@ justify-content: center;
 }
 
 #aside {
-  border: 3px solid cyan;
+  border: 2px solid white;
   grid-area: aside;
   overflow: hidden;
-  background: brown;
+  background: rgb(70, 70, 70);
+  border-radius: 15px;
   
 }
 
@@ -136,7 +148,7 @@ justify-content: center;
   font-family: 'Nunito Sans';
   font-size: 30px;
   cursor: pointer;
-  height: 100px;
+  height: 80px;
   width: 90%;
   padding: 5px;
   display: block;
@@ -154,7 +166,7 @@ justify-content: center;
   font-family: 'Nunito Sans';
   font-size: 30px;
   cursor: pointer;
-  height: 100px;
+  height: 80px;
   width: 90%;
   padding: 5px;
   display: block;
@@ -172,7 +184,7 @@ justify-content: center;
   font-family: 'Nunito Sans';
   font-size: 30px;
   cursor: pointer;
-  height: 100px;
+  height: 80px;
   width: 90%;
   padding: 5px;
   display: block; 
@@ -183,19 +195,20 @@ justify-content: center;
 }
 
 #main {
-  border: 3px solid cyan;
+  
   grid-area: main;
 }
 
 #container_box{
   display: grid;
   grid-template-rows: 1fr 1fr;
-  border: 2px solid cyan;
+  border: 2px solid white;
   margin: auto;
   margin-top: 2px;
   width: 99.5%;
-  height: 98%;
-  background: #39FF14;
+  height: 97%;
+  background: rgb(70, 70, 70);
+  border-radius: 15px;
   
 }
 
