@@ -35,6 +35,10 @@ export default {
 
 
 <style>
-
+#webpage_background {
+  background: #6304df;
+  background-size: cover;
+  height: 100vh;
+}
 
 </style>
