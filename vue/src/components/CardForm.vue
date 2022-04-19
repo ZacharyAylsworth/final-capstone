@@ -50,8 +50,8 @@ export default {
             card: {
               cardID: 1,
               deckID: '1',
-              front: 'front',
-              back: 'back',
+              front: '',
+              back: '',
             }
         }
     },

@@ -3,15 +3,14 @@
     <div class="loading" v-if="isLoading">
     </div>
     <div v-else>
-      <h1>{{ card.title }}</h1>
-      <p>{{ card.description }}</p>
+      <h1>{{ card.front }}</h1>
+      <p>{{ card.back }}</p>
       <router-link tag="button" :to="{ name: 'EditCard', params: {cardID: $route.params.cardID} }" class="btn editCard">Edit Card</router-link>
       <button class="btn deleteCard" v-on:click="deleteCard">Delete Card</button>
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
-      <comments-list :comments="card.comments" />
     </div>
       <div class="deck-actions" v-if="!isLoading">
-      <router-link :to="{ name: 'Deck', params: { id: $route.params.deckID } }">Back to Deck</router-link>
+      <router-link :to="{ name: 'Deck', params: { id: $route.params.deckID } }">Back to Decks</router-link>
     </div>
   </div>
 </template>
