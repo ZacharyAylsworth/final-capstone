@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Study</h1>
-    <study-cards />
+    <study-cards v-bind:deckID="$route.params.deckID" />
   </div>
 </template>
 
