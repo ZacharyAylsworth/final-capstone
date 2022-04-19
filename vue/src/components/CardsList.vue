@@ -8,10 +8,15 @@
       
       <div id="input_lines">     
         <div class="form-group">
+          
           <div id="inside-container">
             <label for="deck-name" id="deckName">Deck Name:</label>
             <input id="deck-name" type="text" class="form-control" v-model="deck.deck_name" autocomplete="off" />
+            
+          
+          
           </div>
+          
         </div>
       </div>
       <div id="deck-buttons">
@@ -136,7 +141,7 @@ export default {
   height: 200px;
   position: relative;
   margin: 10% auto;
-  background: #fff;
+  background: rgb(255, 255, 255);
   padding: 5px; 
   border-radius: 15px;
 
@@ -146,6 +151,10 @@ export default {
   display: flex;
   justify-content: space-around;
   
+}
+img {
+  max-height: 80%;
+  max-width: 80%;
 }
 
 #deckName {
