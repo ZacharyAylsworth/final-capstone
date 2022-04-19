@@ -61,6 +61,9 @@ export default {
         })
       },
 
+  viewCardDetails(cardID) {
+      this.$router.push(`/decks/${this.deckId}/cards/${cardID}`);
+    },
 
     retrieveCards() {
       FlashService
