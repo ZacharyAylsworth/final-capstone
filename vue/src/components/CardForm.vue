@@ -51,12 +51,20 @@ export default {
 
     methods: {
       submitForm() {
+        // test
+        this.$store.commit('SAVE_CARD', this.card);
+        // test
+
         let newCard = {
           cardID: Number(this.$route.params.cardID),
           deckID: Number(this.$route.params.deckID),
           front: this.card.front,
           back: this.card.back,
         };
+
+        // test
+        this.$router.push({ name: 'ListCards', params: { deckID: newCard.deckID } })
+        // test
 
       if (this.cardID === 0) {
         // add
