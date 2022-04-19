@@ -5,7 +5,7 @@
     
     <header id="header">
       <div id="header_buttons">
-        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard' }">Add Card</router-link>
+        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
         <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
       </div>
     </header>
@@ -55,6 +55,11 @@ import Deck from '@/views/Deck'
 
 export default {
   name: "home",
+   data() {
+    return {
+      activeDeck: 1,
+      }
+    },
   views: { 
     AddFlashCard,
     EditCard,

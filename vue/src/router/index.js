@@ -9,6 +9,7 @@ import AddFlashCard from '../views/AddFlashCard.vue'
 import Deck from '../views/Deck.vue'
 import EditCard from '../views/EditCard.vue'
 import Card from '../views/Card.vue'
+import ListCards from '../views/ListCards.vue'
 
 Vue.use(Router)
 
@@ -92,8 +93,18 @@ const router = new Router({
       meta: {
         requiresAuth: true //true
       }
-    }
+    },
+//added stuff
+    {
+      path: '/decks/:deckID/cards/',
+      name: 'ListCards',
+      component: ListCards,
+      meta: {
+        requiresAuth: true
+      }
 
+    }
+//added stuff
   ]
 })
 

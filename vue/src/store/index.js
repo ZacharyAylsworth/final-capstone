@@ -30,6 +30,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SAVE_CARD(state, card) {
+      state.deckCards.push(card);
+    },
     SET_DECKS(state, data) {
       state.decks = data;
     },

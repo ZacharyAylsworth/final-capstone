@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface FlashCardsDao {
 
+    List<Cards> getCardsForDeck(Long deck_id);
+
     List<Cards> list();
 
     Cards getCard(Long card_id);
