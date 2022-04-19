@@ -5,13 +5,38 @@ import com.techelevator.model.DictionaryApi;
 import com.techelevator.services.RestDictionaryService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
+
 public class JdbcExampleDecksDao implements ExampleDecksDao {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcExampleDecksDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public boolean megaSave() {
+        saveCardObserving(null);
+        saveCardHelpful();
+        saveCardTeamwork();
+        saveCardAwesome();
+        saveCardAnnoy();
+        saveCardEnormous();
+        saveCardEntrepreneur();
+        saveCardOxymoron();
+        saveCardFraudulent();
+        saveCardPurportedly();
+        saveCardVendetta();
+        saveCardMettle();
+        saveCardDemagogue();
+        saveCardUbiquitous();
+        saveCardPejorative();
+        saveCardProtean();
+        saveCardTirade();
+        saveCardAbrogate();
+        saveCardImpecunious();
+        return true;
     }
 
     public boolean saveCardObserving(Cards observing) {

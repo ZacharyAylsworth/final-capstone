@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Deck;
+import com.techelevator.model.*;
 import com.techelevator.model.exceptions.DeckNotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -11,9 +11,11 @@ import java.util.List;
 public class JdbcDeckDao implements DeckDao {
 
     private JdbcTemplate jdbcTemplate;
+    private ExampleDecksDao exampleDao;
 
-    public JdbcDeckDao(JdbcTemplate jdbcTemplate) {
+    public JdbcDeckDao(JdbcTemplate jdbcTemplate, ExampleDecksDao exampleDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.exampleDao = exampleDao;
     }
 
 
@@ -41,17 +43,26 @@ public class JdbcDeckDao implements DeckDao {
             deck = mapRowToDeck(results);
         } else {
             //if deck id <= 3, build with helper method
-//            //then call deck id 1/2/3
-//            String sql = "SELECT * " +
-//                    "FROM decks WHERE deck_id = ? ";
-//            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deck_id);
+            if (deck_id <= 3) {
+                String sqlDeck1 = "INSERT INTO decks (deck_id, deck_name) " +
+                        "VALUES (?, ?)";
+                jdbcTemplate.update(sqlDeck1, 1, "Vocabulary - Easy");
+
+                String sqlDeck2 = "INSERT INTO decks (deck_id, deck_name) " +
+                        "VALUES (?, ?)";
+                jdbcTemplate.update(sqlDeck1, 2, "Vocabulary - Medium");
+                String sqlDeck3 = "INSERT INTO decks (deck_id, deck_name) " +
+                        "VALUES (?, ?)";
+                jdbcTemplate.update(sqlDeck1, 3, "Vocabulary - Hard");
+            exampleDao.megaSave();
+            }
             throw new DeckNotFoundException();
         }
         return deck;
     }
 
     @Override
-    public boolean saveDeck(Deck deckToSave) {
+    public boolean saveDeck(Deck deckToSave) { //why card id
         String sql = "INSERT INTO decks (deck_id, deck_name, card_id) " +
                 "VALUES (DEFAULT, ?, ?)";
         return jdbcTemplate.update(sql, deckToSave.getDeck_id(), deckToSave.getDeck_name(), deckToSave.getCard_id()) == 1;
@@ -77,8 +88,5 @@ public class JdbcDeckDao implements DeckDao {
 
         return d;
     }
-
-
-//create private helper method to call all cards in deck 1/2/3
-
+    
 }

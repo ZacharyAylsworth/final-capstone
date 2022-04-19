@@ -4,6 +4,8 @@ import com.techelevator.model.Cards;
 
 public interface ExampleDecksDao {
 
+    boolean megaSave();
+
     boolean saveCardObserving(Cards observing);
 
     boolean saveCardHelpful();
