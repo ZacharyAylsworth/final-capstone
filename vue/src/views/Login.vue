@@ -40,7 +40,7 @@
           required
         />
         
-        <router-link :to="{ name: 'register' }" >Need an account?</router-link>
+        <router-link :to="{ name: 'register' }" id="needAccountButton">Need an account?</router-link>
         <button type="submit" class="btn">Sign in</button>
       </form>
     </div>
@@ -112,6 +112,8 @@ export default {
     background: #fff;
     padding: 5px; 
     border-radius: 10px;
+    
+    
 }
 
 .form-control {
@@ -124,11 +126,15 @@ export default {
   border-bottom: 1px solid #999;
   outline: none;
   background: transparent;
+  
 }
+
+
 
 
 .sr-only {
   color: white;
+  
 }
 
 .btn {
@@ -141,11 +147,21 @@ export default {
     margin: auto;
     border-radius: 20px;
     outline: none;
-    background: linear-gradient(to right, #abff10, #ffad06);
+    background: linear-gradient(to right, #b1ff20, #ff9f05);
+    font-size: 17px;
+}
+
+#needAccountButton {
+  display: flex;
+  justify-content: center;
+  margin: 45px auto;
 }
 
 #login {
   margin: 10%
 }
 
+
 </style>
+
+

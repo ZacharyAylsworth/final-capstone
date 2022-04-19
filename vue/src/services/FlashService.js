@@ -19,7 +19,7 @@ export default {
       },
     
     getCard(cardID) {
-        return axios.get(`/cards/${cardID}`)
+        return axios.get(`/flashcards/cards/${cardID}`)
       },
     
     addCard(card) {
@@ -27,10 +27,10 @@ export default {
       },
     
     updateCard(card) {
-        return axios.put(`/cards/${card.id}`, card);
+        return axios.put(`/flashcards/cards/${card.id}`, card);
       },
     
     deleteCard(cardID) {
-        return axios.delete(`/cards/${cardID}`);
+        return axios.delete(`/flashcards/cards/${cardID}`);
       }
 }

@@ -59,11 +59,11 @@ const router = new Router({
     },
 
     {
-      path: '/decks/:id',
+      path: '/decks',
       name: "Deck",
       component: Deck,
       meta: {
-        requiresAuth: true
+        requiresAuth: true //true
       }
     },
 
@@ -72,7 +72,7 @@ const router = new Router({
       name: 'Card',
       component: Card,
       meta: {
-        requiresAuth: true
+        requiresAuth: true //true
       }
     },
 
@@ -81,7 +81,7 @@ const router = new Router({
       name: 'AddFlashCard',
       component: AddFlashCard,
       meta: {
-        requiresAuth: true
+        requiresAuth: true //true
       }
     },
 
@@ -90,7 +90,7 @@ const router = new Router({
       name: 'EditCard',
       component: EditCard,
       meta: {
-        requiresAuth: true
+        requiresAuth: true //true
       }
     }
 

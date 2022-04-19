@@ -33,7 +33,7 @@
           v-model="user.confirmPassword"
           required
         />
-        <router-link :to="{ name: 'login' }">Have an account?</router-link>
+        <router-link :to="{ name: 'login' }" id="haveAccount">Have an account?</router-link>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
           Create Account
@@ -99,8 +99,22 @@ export default {
 <style scoped>
 
 .container{
-border: 1px solid;
+  border: 1px solid;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  margin: 10% auto;
+  background: #fff;
+  padding: 5px; 
+  border-radius: 10px;
 }
+
+#haveAccount {
+  display: flex;
+  justify-content: center;
+  margin: 35px auto;
+}
+
 
 #register {
   text-align: center;
@@ -134,6 +148,7 @@ border: 1px solid;
   border-radius: 20px;
   outline: none;
   background: linear-gradient(to right, #abff10, #ffad06);
+  font-size: 16px;
 }
 
 

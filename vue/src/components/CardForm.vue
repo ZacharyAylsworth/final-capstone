@@ -5,13 +5,13 @@
       <div id="input_lines">     
         <div class="form-group">
           
-          <label for="question">Question:</label>
-          <input id="question" type="text" class="form-control" v-model="card.question" autocomplete="off" />
+          <label for="front">Front:</label>
+          <input id="front" type="text" class="form-control" v-model="card.front" autocomplete="off" />
         </div>
         <div class="form-group">
           
-          <label for="answer">Answer:</label>
-          <input id="answer" class="form-control" v-model="card.answer" />
+          <label for="back">Back:</label>
+          <input id="back" class="form-control" v-model="card.back" />
         </div>
       </div>
       
@@ -19,14 +19,7 @@
         <button class="btn btn-submit" id="submitButton">Submit</button>
         <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
 
-        <div class="dropdown">
-          <button class="dropbtn">Deck Selection</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-        </div>  
+        
       </div>
     </form>
     </div>
@@ -50,10 +43,8 @@ export default {
             card: {
               cardID: 1,
               deckID: '1',
-              front: 'front',
-              back: 'back',
-              categoryID: '1',
-              difficultyID: '1', 
+              front: '',
+              back: '',
             }
         }
     },
@@ -65,8 +56,6 @@ export default {
           deckID: Number(this.$route.params.deckID),
           front: this.card.front,
           back: this.card.back,
-          categoryID: Number(this.$route.params.categoryID),
-          difficultyID: Number(this.$route.params.difficultyID)
         };
 
       if (this.cardID === 0) {
@@ -75,7 +64,7 @@ export default {
           .addCard(newCard)
           .then(response => {
             if (response.status === 201) {
-              this.$router.push(`/decks/${newCard.deckID}`); // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`); 
             }
           })
           .catch(error => {
@@ -87,7 +76,7 @@ export default {
           .updateCard(newCard)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push(`/decks/${newCard.deckID}`);  // maybe change to `/cards/${newCard.cardID}`
+              this.$router.push(`/decks/${newCard.deckID}`); 
             }
           })
           .catch(error => {
@@ -137,7 +126,9 @@ cancelForm() {
 };
 </script>
 
-<style>
+<style scoped>
+
+
 #cardFormContainer {
     border: 2px solid;
     width: 500px;
@@ -159,6 +150,7 @@ cancelForm() {
   border-bottom: 1px solid #999;
   outline: none;
   background: transparent;
+  font-size: 20px;
 }
 
 #buttons{
@@ -166,61 +158,50 @@ cancelForm() {
   justify-content: space-around;
 }
 
+#input_lines {
+  text-align: center;
+}
+
 #submitButton {
   margin:8% auto;
   text-align: center;
   color: rgb(0, 0, 0);
   padding: 5px;
-  margin: auto;
   border-radius: 5px;
+
+  cursor: pointer;
+  height: 60px;
+  margin: 50px;
+  width: 30%;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+  font-family: 'Nunito San';
+  font-size: 30px;
+    
 }
 
 #cancelButton {
   color: rgb(0, 0, 0);
   padding: 5px;
-  margin: auto;
   border-radius: 5px;
-}
 
-
-.dropbtn {
-  color: rgb(0, 0, 0);
+  cursor: pointer;
+  height: 60px;
+  margin: 50px;
+  width: 30%;
   padding: 5px;
-  margin: 50px auto;
-  border-radius: 5px;
-}
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
   display: block;
+  border-radius: 20px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+  font-family: 'Nunito San';
+  font-size: 30px;
+    
 }
 
 
-.dropdown-content a:hover {background-color: #ddd;}
 
-
-.dropdown:hover .dropdown-content {display: block;}
-
-
-.dropdown:hover .dropbtn {background-color: #3e4a8e;}
 
 </style>

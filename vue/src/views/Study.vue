@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>Add Deck</h1>
-    <cards-list />
+      <h1>Study</h1>
+    <study-cards />
   </div>
 </template>
 
 <script>
-import CardsList from '@/components/CardsList';
+import StudyCards from '@/components/StudyCards';
 
 export default {
   components: {
-    CardsList
+    StudyCards
   }
 };
 </script>
