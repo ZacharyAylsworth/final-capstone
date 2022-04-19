@@ -72,6 +72,9 @@ export default {
           });
       } else {
         // update
+        newCard.id = this.cardID;
+        newCard.front = this.card.front;
+        newCard.back = this.card.back;
         flashService
           .updateCard(newCard)
           .then(response => {
