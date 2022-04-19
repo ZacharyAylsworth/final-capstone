@@ -33,6 +33,19 @@ public class JdbcFlashCardsDao implements FlashCardsDao {
         return cards;
     }
 
+    //
+    public List<Cards> getCardsForDeck(Long deck_id){
+        List<Cards> cards = new ArrayList<>();
+        String sql = "SELECT * " +
+                "FROM cards WHERE deck_id = ? ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deck_id);
+        while(results.next()){
+            cards.add(mapRowToCard(results));
+        }
+        return cards;
+
+    }
+
     @Override
     public Cards getCard(Long card_id) {
         Cards card = null;
