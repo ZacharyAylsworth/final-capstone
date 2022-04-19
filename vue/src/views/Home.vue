@@ -14,10 +14,10 @@
 
     <aside id="aside">
       <div id="aside_buttons">
-        <button type="submit" class="aside_btn1">Deck 1</button>
-        <button type="submit" class="aside_btn2">Deck 2</button>
-        <button type="submit" class="aside_btn3">Deck 3</button>
-        
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 1} }" class="aside_btn1">Deck 1</router-link>
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 2} }" class="aside_btn1">Deck 2</router-link>
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 3} }" class="aside_btn1">Deck 3</router-link>
+          
       </div>
       
     </aside>

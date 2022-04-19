@@ -1,15 +1,22 @@
 <template>
   <div>
       <label for="study-deck">Deck:</label>
-      <div v-for='card of cards' :key='card.id'>
-
+      <div v-if="!flipped">
+          {{ currentCard.front }}
       </div>
+      <div v-else>
+          {{ currentCard.back }}
+      </div>
+      <button v-on:click="flipCard">Flip Card</button>
+      <button v-on:click="nextCard" v-bind:disabled="cardIndex == cards.length-1">Next Card</button>
   </div>
 </template>
 
 <script>
-export default {
+import FlashService from '../services/FlashService'
 
+export default {
+props: ["deckID"],
 
 computed: {
     currentCard(){
@@ -24,9 +31,37 @@ data(){
     }
 },
 
+created(){
+    FlashService.getDeck(this.deckID).then(() => {
+    this.retrieveCards();
+    });
+},
+
 methods: {
-    flipCard: function(card){
-        card.flipped = !card.flipped;
+    flipCard(){
+        this.flipped = !this.flipped;
+    },
+    retrieveCards() {
+      FlashService
+        .getCards(this.deckID)
+        .then(response => {
+        //   this.$store.commit("SET_DECK_CARDS", response.data);
+        this.cards = response.data;
+          this.isLoading = false;
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            alert(
+              "Deck cards not available. This deck may have been deleted or you have entered an invalid deck ID."
+            );
+            this.$router.push("/");
+          }
+        });
+    },
+
+    nextCard(){
+        this.cardIndex++;
+        this.flipped = false;
     }
   }
 }
