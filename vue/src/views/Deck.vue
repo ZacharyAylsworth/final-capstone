@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Deck</h1>
+    <h1>Add Deck</h1>
     <cards-list />
   </div>
 </template>

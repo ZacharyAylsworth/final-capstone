@@ -3,7 +3,7 @@
   <div id="content">
     <decks-list />
     
-    <header id="header">HEADER
+    <header id="header">
       <div id="header_buttons">
         <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard' }">Add Card</router-link>
         <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
@@ -12,39 +12,34 @@
 
 
 
-    <aside id="aside">ASIDE
+    <aside id="aside">
       <div id="aside_buttons">
-        <button type="submit" class="aside_btn1">Easy Difficulty</button>
-        <button type="submit" class="aside_btn2">Medium Difficulty</button>
-        <button type="submit" class="aside_btn3">Hard Difficulty</button>
-        
-        
+        <button type="submit" class="aside_btn1">Deck 1</button>
+        <button type="submit" class="aside_btn2">Deck 2</button>
+        <button type="submit" class="aside_btn3">Deck 3</button>
+          
       </div>
       
     </aside>
 
 
 
-    <main id="main"> MAIN
-      <div id="container_box">
-        <div id="main_buttons">
-          <div id="upper_buttons">
-            <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
-            <button type="submit" class="upper_btn2">Edit Deck</button>
+    <main id="main">
+      <div id="container_box"> 
+        
+          <div id="main_buttons">
+            <div id="upper_buttons">
+              <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
+              <button type="submit" class="upper_btn2">Edit Deck</button>
+            </div>
           </div>
-          <div id="lower_buttons"> 
-            <button type="submit" class="lower_btn1">Deck 1</button>
-            <button type="submit" class="lower_btn2">Deck 2</button>
-            <button type="submit" class="lower_btn3">Deck 3</button>
-            
-          </div> 
-        </div>
+        
       </div>
     </main>
 
 
 
-    <footer id="footer">FOOTER
+    <footer id="footer">
 
     </footer>
 
@@ -84,87 +79,157 @@ export default {
 }
 
 #header {
-border: 3px solid;  
+border: 3px solid cyan;  
 grid-area: header;
+background: brown;
+
 
 }
 
 #header_buttons {
 display:flex;
 justify-content: center;
+
 }
 
 .header_btn {
   display: grid;
-  margin: auto;
+  margin: 1% auto;
   grid-template-rows: 20px;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+
+  cursor: pointer;
+  height: 55px;
+  width: 25%;
+  padding: 5px;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  font-family: 'Nunito Sans';
+  font-size: 30px;
+    
 }
 
 #aside {
-  border: 3px solid;
+  border: 3px solid cyan;
   grid-area: aside;
   overflow: hidden;
+  background: brown;
+  
 }
 
 #aside_buttons {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+  margin-top: auto;
+  
 }
 
 .aside_btn1{
   display: grid;
   grid-template-rows: 40px;
-  margin: 28px;
+  margin: 20px;
+
+  font-family: 'Nunito Sans';
+  font-size: 30px;
+  cursor: pointer;
+  height: 100px;
+  width: 90%;
+  padding: 5px;
+  display: block;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+    
 }
 
 .aside_btn2{
   display: grid;
   grid-template-rows: 40px;
-  margin: 28px;
+  margin: 20px;
+
+  font-family: 'Nunito Sans';
+  font-size: 30px;
+  cursor: pointer;
+  height: 100px;
+  width: 90%;
+  padding: 5px;
+  display: block;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+    
 }
 
 .aside_btn3{
   display: grid;
   grid-template-rows: 40px;
-  margin: 28px;
+  margin: 20px;
+
+  font-family: 'Nunito Sans';
+  font-size: 30px;
+  cursor: pointer;
+  height: 100px;
+  width: 90%;
+  padding: 5px;
+  display: block; 
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+    
 }
 
 #main {
-  border: 3px solid;
+  border: 3px solid cyan;
   grid-area: main;
 }
 
 #container_box{
   display: grid;
   grid-template-rows: 1fr 1fr;
-  border: 2px solid;
+  border: 2px solid cyan;
   margin: auto;
-  margin-top: 5px;
-  width: 600px;
-  height: 400px;
+  margin-top: 2px;
+  width: 99.5%;
+  height: 98%;
+  background: #39FF14;
+  
 }
 
 #upper_buttons {
-  margin: 20px;
+  margin: auto;
   display: flex;
-  grid-template-rows: 20px;
-  display: flex;
+  grid-template-rows: 10px;
   justify-content: space-around;
+  
 }
 
-#lower_buttons {
-  margin: 20px;
-  display: flex;
-  grid-template-rows: 20px;
-  display: flex;
-  justify-content: space-around;
+.main_upper_btn {
+  cursor: pointer;
+    height: 110px;
+    margin: 50px;
+    width: 25%;
+    padding: 5px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #b1ff20, #ff9f05);
+    font-family: 'Nunito Sans';
+    font-size: 30px;    
+    
+}
+.upper_btn2 {
+  cursor: pointer;
+    height: 110px;
+    margin: 50px;
+    width: 25%;
+    padding: 5px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #b1ff20, #ff9f05);
+    font-family: 'Nunito San';
+    font-size: 30px;
+    
 }
 
-#footer {
-border: 3px solid;  
-grid-area: footer;
-}
 
 </style>

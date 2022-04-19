@@ -1,22 +1,24 @@
 <template>
   <div>
     <div class="header">
-      <h1>{{ title }}</h1>
-
+      <div id="addDeck">
+        <h1 >{{ title }}</h1>
+      </div>
           <form v-on:submit.prevent="submitForm" class="cardForm" v-if="!isLoading">
       
       <div id="input_lines">     
         <div class="form-group">
-          
-          <label for="deck-name">Deck Name:</label>
-          <input id="deck-name" type="text" class="form-control" v-model="deck.deck_name" autocomplete="off" />
+          <div id="inside-container">
+            <label for="deck-name" id="deckName">Deck Name:</label>
+            <input id="deck-name" type="text" class="form-control" v-model="deck.deck_name" autocomplete="off" />
+          </div>
         </div>
       </div>
-      <div id="buttons">
+      <div id="deck-buttons">
         <button class="btn btn-submit" id="submitButton">Submit</button>
         <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
-        </div>
-        </form>
+      </div>
+      </form>
 
       <router-link tag="button" class="btn addNewCard" :to="{ name: 'AddFlashCard', params: {deckID: this.deckId} }" v-if="!isLoading && deckId">Add New Card</router-link>
       <button class="btn btn-cancel deleteDeck" v-if="!isLoading && deckId" v-on:click="deleteDeck">Delete Deck</button>
@@ -121,6 +123,77 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+#addDeck {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  border: 2px solid;
+  width: 400px;
+  height: 200px;
+  position: relative;
+  margin: 10% auto;
+  background: #fff;
+  padding: 5px; 
+  border-radius: 15px;
+
+}
+
+#inside-container {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+#deckName {
+  font-size: 20px;
+}
+
+#deck-name {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  font-size: 30px;
+  border-radius: 5px; 
+  
+}
+
+#deck-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#submitButton {
+  cursor: pointer;
+    height: 60px;
+    margin: 50px;
+    width: 25%;
+    padding: 5px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #b1ff20, #ff9f05);
+    font-family: 'Nunito Sans';
+    font-size: 40px;
+}
+
+#cancelButton {
+  cursor: pointer;
+    height: 60px;
+    margin: 50px;
+    width: 25%;
+    padding: 5px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    background: linear-gradient(to right, #b1ff20, #ff9f05);
+    font-family: 'Nunito Sans';
+    font-size: 40px;
+}
+  
+
 
 </style>
