@@ -5,6 +5,10 @@ export default {
     getDecks() {
         return axios.get('/decks');
       },
+
+      getDeck(deckID){
+        return axios.get(`/decks/${deckID}`)
+      },
     
     addDecks(deck) {
         return axios.post('/decks', deck);
