@@ -44,7 +44,7 @@ export default {
               cardID: 1,
               deckID: '1',
               front: '',
-              back: '',
+              back: ''
             }
         }
     },

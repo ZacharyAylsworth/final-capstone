@@ -1,12 +1,13 @@
 <template>
   <div>
-      <label for="study-deck">Deck:</label>
+      <h3>Deck: {{ currentDeck }}</h3>
       <div v-if="!flipped">
           {{ currentCard.front }}
       </div>
       <div v-else>
           {{ currentCard.back }}
       </div>
+      <button v-on:click="previousCard" v-bind:disabled="cardIndex == 0">Previous Card</button>
       <button v-on:click="flipCard">Flip Card</button>
       <button v-on:click="nextCard" v-bind:disabled="cardIndex == cards.length-1">Next Card</button>
   </div>
@@ -14,14 +15,21 @@
 
 <script>
 import FlashService from '../services/FlashService'
+import Deck from '../views/Deck.vue'
 
 export default {
-props: ["deckID"],
+    name: 'study-cards',
+    props: ["deckID", "deck"],
+    views: { Deck },
 
 computed: {
     currentCard(){
         return this.cards[this.cardIndex]
-    }
+    },
+
+    currentDeck(){
+        return this.deckID
+    },
 },
 data(){
     return {
@@ -61,6 +69,11 @@ methods: {
 
     nextCard(){
         this.cardIndex++;
+        this.flipped = false;
+    },
+
+    previousCard(){
+        this.cardIndex--;
         this.flipped = false;
     }
   }
