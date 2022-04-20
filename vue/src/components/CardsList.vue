@@ -2,8 +2,8 @@
   <div>
     <div class="header">
       <div v-for="card in this.$store.state.deckCards" :key="card.cardID"> 
-        {{ card.cardID }}
-        {{ card.front }}
+        <!-- {{ card.cardID }}
+        {{ card.front }} -->
       </div>
       <div id="addDeck">
         <h1 >{{ title }}</h1>
@@ -21,7 +21,9 @@
         </div>
       </div>
       <div id="deck-buttons">
-        <button class="btn btn-submit" id="submitButton">Submit</button>
+        <router-link tag="button" class="btn btn-submit" id="submitButton" v-bind:to="{ name: 'AddFlashCard', params: { deckID: this.deckId } }">
+        Submit
+        </router-link>
         <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
       </div>
       </form>
@@ -34,9 +36,6 @@
     </div>
     <div v-else>
       <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
-    </div>
-    <div class="deck-actions" v-if="!isLoading">
-      
     </div>
   </div>
 </template>

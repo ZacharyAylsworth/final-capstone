@@ -5,8 +5,8 @@
     
     <header id="header">
       <div id="header_buttons">
-        <router-link tag="button" type="submit" class="header_btn1" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
-        <router-link tag="button" type="submit" class="header_btn2" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
+        <!-- <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
+        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link> -->
       </div>
     </header>
 
@@ -30,7 +30,7 @@
           <div id="main_buttons">
             <div id="upper_buttons">
               <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
-              <button type="submit" class="upper_btn2">Edit Deck</button>
+              <!-- <button type="submit" class="upper_btn2">Edit Deck</button> -->
             </div>
           </div>
         

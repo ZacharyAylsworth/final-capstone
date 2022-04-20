@@ -23,14 +23,21 @@
 
 <script>
 import FlashService from '../services/FlashService'
+import Deck from '../views/Deck.vue'
 
 export default {
-props: ["deckID"],
+    name: 'study-cards',
+    props: ["deckID", "deck"],
+    views: { Deck },
 
 computed: {
     currentCard(){
         return this.cards[this.cardIndex]
-    }
+    },
+
+    currentDeck(){
+        return this.deckID
+    },
 },
 data(){
     return {

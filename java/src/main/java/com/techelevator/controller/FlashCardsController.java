@@ -25,6 +25,7 @@ public class FlashCardsController{
     //CREATE
     @PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/cards", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public Cards addCard(@RequestBody Cards card){
         if(card !=null){
             dao.saveCard(card);
