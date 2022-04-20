@@ -12,10 +12,12 @@
       
       <div id="input_lines">     
         <div class="form-group">
+          
           <div id="inside-container">
             <label for="deck-name" id="deckName">Deck Name:</label>
             <input id="deck-name" type="text" class="form-control" v-model="deck.deck_name" autocomplete="off" />
           </div>
+          
         </div>
       </div>
       <div id="deck-buttons">
@@ -27,6 +29,7 @@
       </form>
 
       <router-link tag="button" class="btn addNewCard" :to="{ name: 'AddFlashCard', params: {deckID: this.deckId} }" v-if="!isLoading && deckId">Add New Card</router-link>
+      
       <button class="btn btn-cancel deleteDeck" v-if="!isLoading && deckId" v-on:click="deleteDeck">Delete Deck</button>
     </div>
     <div class="loading" v-if="isLoading">
@@ -36,6 +39,8 @@
     </div>
   </div>
 </template>
+
+
 
 <script>
 import FlashService from '../services/FlashService';
@@ -131,9 +136,17 @@ export default {
 
 
 <style scoped>
+#webpage_background {
+  color: rgb(228, 228, 228);
+  
+  font-size: 25px;
+}
+
 #addDeck {
   display: flex;
   justify-content: center;
+  margin:  -50px auto;
+  
 }
 
 .form-group {
@@ -142,16 +155,22 @@ export default {
   height: 200px;
   position: relative;
   margin: 10% auto;
-  background: #fff;
+  background: rgb(70, 70, 70);
   padding: 5px; 
   border-radius: 15px;
+  color: white;
 
 }
 
 #inside-container {
   display: flex;
   justify-content: space-around;
+  padding-top: 20%;
   
+}
+img {
+  max-height: 80%;
+  max-width: 80%;
 }
 
 #deckName {
@@ -198,6 +217,23 @@ export default {
     background: linear-gradient(to right, #b1ff20, #ff9f05);
     font-family: 'Nunito Sans';
     font-size: 40px;
+}
+
+#routerLinkButton {
+    background: linear-gradient(to right, #b1ff20, #05ffff);
+    cursor: pointer;
+    height: 30px;
+    width: 7%;
+    padding: 5px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    font-family: 'Nunito Sans';
+    font-size: 20px;
+
+    display: flex;
+    justify-content: end;
+    
 }
   
 

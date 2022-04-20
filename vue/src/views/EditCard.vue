@@ -20,4 +20,9 @@ export default {
 
 
 <style>
+#card_title {
+  color: rgb(228, 228, 228);
+  
+  font-size: 50px;
+}
 </style>

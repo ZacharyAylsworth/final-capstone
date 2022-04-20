@@ -1,17 +1,25 @@
 <template>
-  <div>
-      <h3>Deck: {{ currentDeck }}</h3>
-      <div v-if="!flipped">
+  <div id="study_container">
+      <label for="study-deck" id="study_title">Deck:</label>
+      
+      <div v-if="!flipped" id="word">
           {{ currentCard.front }}
       </div>
-      <div v-else>
+      <div v-else id="meaning">
           {{ currentCard.back }}
-      </div>
-      <button v-on:click="previousCard" v-bind:disabled="cardIndex == 0">Previous Card</button>
-      <button v-on:click="flipCard">Flip Card</button>
-      <button v-on:click="nextCard" v-bind:disabled="cardIndex == cards.length-1">Next Card</button>
-  </div>
+    
+      </div >
+        
+        <div id="threeButtons">
+            <button v-on:click="previousCard" v-bind:disabled="cardIndex == 0" id="previousBtn">Previous Card</button>
+            <button v-on:click="flipCard" id="flipBtn">Flip Card</button>
+            <button v-on:click="nextCard" v-bind:disabled="cardIndex == cards.length-1" id="nextBtn">Next Card</button>
+        </div>
+    </div>
+
 </template>
+
+
 
 <script>
 import FlashService from '../services/FlashService'
@@ -71,8 +79,12 @@ methods: {
         this.cardIndex++;
         this.flipped = false;
     },
+<<<<<<< HEAD
 
     previousCard(){
+=======
+    previousCard () {
+>>>>>>> 54f8ce9faf8d5b0c7bca61e9f2dc1ffbd0e807c3
         this.cardIndex--;
         this.flipped = false;
     }
@@ -80,6 +92,90 @@ methods: {
 }
 </script>
 
-<style>
+
+
+<style scoped>
+
+#word {
+padding-top: 10%;
+font-size: 30px;
+display: flex;
+justify-content: center;
+}
+
+#meaning{
+   padding-top: 10%; 
+   font-size: 30px; 
+   display: flex;
+   justify-content: center;
+}
+
+#study_title {
+    font-size: 30px;
+    margin-bottom: 2%;
+}
+
+#study_container {
+    border: 2px solid;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 10% auto;
+    background: rgb(70, 70, 70);
+    padding: 5px; 
+    border-radius: 10px;
+    color: white;
+}
+
+#studyBtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+#flipBtn {
+  cursor: pointer;
+  height: 60px;
+  margin: 50px;
+  width: 155%;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+  font-family: 'Nunito San';
+  font-size: 25px;
+}
+
+#nextBtn {
+  cursor: pointer;
+  height: 60px;
+  margin: 50px;
+  width: 155%;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+  font-family: 'Nunito San';
+  font-size: 25px;
+} 
+
+#previousBtn {
+  cursor: pointer;
+  height: 60px;
+  margin: 50px;
+  width: 155%;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+  font-family: 'Nunito San';
+  font-size: 25px;
+} 
+
+#threeButtons {
+    position: absolute;
+    bottom: -20px;
+    margin: auto;
+    
+}
 
 </style>

@@ -146,23 +146,24 @@ cancelForm() {
     height: 500px;
     position: relative;
     margin: 10% auto;
-    background: #fff;
+    background: rgb(70, 70, 70);
     padding: 5px; 
     border-radius: 10px;
+    color: white;
 }
 
 .form-group {
   width: 100%;
   padding: 10px 0;
-  margin: 5px 0;
-  border-left: 0;
-  border-top: 0;
-  border-right: 0;
+  margin: 3px 0;
+
   border-bottom: 1px solid #999;
   outline: none;
   background: transparent;
   font-size: 20px;
 }
+
+
 
 #buttons{
   display: flex;

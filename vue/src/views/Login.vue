@@ -111,9 +111,7 @@ export default {
     margin: 10% auto;
     background: #fff;
     padding: 5px; 
-    border-radius: 10px;
-    
-    
+    border-radius: 10px;  
 }
 
 .form-control {
