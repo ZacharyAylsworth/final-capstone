@@ -79,12 +79,7 @@ methods: {
         this.cardIndex++;
         this.flipped = false;
     },
-<<<<<<< HEAD
-
-    previousCard(){
-=======
     previousCard () {
->>>>>>> 54f8ce9faf8d5b0c7bca61e9f2dc1ffbd0e807c3
         this.cardIndex--;
         this.flipped = false;
     }
