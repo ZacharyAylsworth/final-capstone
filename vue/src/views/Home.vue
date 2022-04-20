@@ -3,12 +3,7 @@
   <div id="content">
     <decks-list />
     
-    <header id="header">
-      <div id="header_buttons">
-        <!-- <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
-        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link> -->
-      </div>
-    </header>
+    
 
 
 
@@ -88,7 +83,7 @@ export default {
   grid-template-rows: 90px 550px 60px;
   grid-gap: 10px;
   grid-template-areas: 
-                       "aside aside header"
+                       "aside aside main"
                        "aside aside main"
                        "aside aside main"
                        
@@ -250,19 +245,22 @@ margin-left: 6%;
 
 .main_upper_btn {
   cursor: pointer;
-    height: 310px;
+    height: 450px;
     margin-left: 100px;
-        margin-top: 17%;
-    width: 30%;
+    margin-top: 17%;
+    width: 50%;
     padding: 100px;
     display: block;
     border-radius: 20px;
     outline: none;
     background: linear-gradient(to right, #b1ff20, #ff9f05);
     font-family: 'Nunito Sans';
-    font-size: 30px;    
+    font-size: 30px;  
+    display: flex;
+    margin-right: 12%;
+}  
     
-}
+
 .upper_btn2 {
   cursor: pointer;
     height: 310px;
