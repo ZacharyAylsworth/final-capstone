@@ -34,7 +34,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 #webpage_background {
   background: #6304df;
   background-size: cover;

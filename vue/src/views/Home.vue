@@ -5,8 +5,8 @@
     
     <header id="header">
       <div id="header_buttons">
-        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
-        <router-link tag="button" type="submit" class="header_btn" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
+        <router-link tag="button" type="submit" class="header_btn1" v-bind:to="{ name: 'AddFlashCard', params: { deckID: activeDeck } }">Add Card</router-link>
+        <router-link tag="button" type="submit" class="header_btn2" v-bind:to="{ name: 'EditCard' }">Edit Card</router-link>
       </div>
     </header>
 
@@ -17,7 +17,7 @@
         <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 1} }" class="aside_btn1">Deck 1</router-link>
         <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 2} }" class="aside_btn1">Deck 2</router-link>
         <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 3} }" class="aside_btn1">Deck 3</router-link>
-          
+           
       </div>
       
     </aside>
@@ -85,12 +85,13 @@ export default {
   display: grid;
   text-align: center;
   grid-template-columns: 20% auto;
-  grid-template-rows: 90px 500px 60px;
+  grid-template-rows: 90px 550px 60px;
   grid-gap: 10px;
   grid-template-areas: 
-                       "aside header"
-                       "aside main"
-                       "footer footer";
+                       "aside aside header"
+                       "aside aside main"
+                       "aside aside main"
+                       
 }
 
 #header {
@@ -98,19 +99,42 @@ border: 2px solid white;
 grid-area: header;
 background: rgb(70, 70, 70);
 border-radius: 15px;
+width: 64%;
+margin-left: 6%;
 
 
 }
 
 #header_buttons {
-display:flex;
-justify-content: center;
+  display:flex;
+  justify-content: center;
+  margin-top: 8.5px;
 
 }
 
-.header_btn {
+.header_btn1 {
   display: grid;
   margin: 1% auto;
+  margin-left: 19%;
+  grid-template-rows: 20px;
+  background: linear-gradient(to right, #b1ff20, #ff9f05);
+
+  cursor: pointer;
+  height: 55px;
+  width: 25%;
+  padding: 5px;
+  display: block;
+  border-radius: 20px;
+  outline: none;
+  font-family: 'Nunito Sans';
+  font-size: 30px;
+    
+}
+
+.header_btn2 {
+  display: grid;
+  margin: 1% auto;
+  margin-right: 19%;
   grid-template-rows: 20px;
   background: linear-gradient(to right, #b1ff20, #ff9f05);
 
@@ -132,6 +156,7 @@ justify-content: center;
   overflow: hidden;
   background: rgb(70, 70, 70);
   border-radius: 15px;
+  margin-left: 41%;
   
 }
 
@@ -197,7 +222,10 @@ justify-content: center;
 #main {
   
   grid-area: main;
+  margin-left: -11%;
+  margin-right: 12%;
 }
+
 
 #container_box{
   display: grid;
@@ -205,7 +233,7 @@ justify-content: center;
   border: 2px solid white;
   margin: auto;
   margin-top: 2px;
-  width: 99.5%;
+  width: 65.5%;
   height: 97%;
   background: rgb(70, 70, 70);
   border-radius: 15px;
@@ -222,10 +250,11 @@ justify-content: center;
 
 .main_upper_btn {
   cursor: pointer;
-    height: 110px;
-    margin: 50px;
-    width: 25%;
-    padding: 5px;
+    height: 310px;
+    margin-left: 100px;
+        margin-top: 17%;
+    width: 30%;
+    padding: 100px;
     display: block;
     border-radius: 20px;
     outline: none;
@@ -236,10 +265,11 @@ justify-content: center;
 }
 .upper_btn2 {
   cursor: pointer;
-    height: 110px;
-    margin: 50px;
-    width: 25%;
-    padding: 5px;
+    height: 310px;
+    margin-right: 100px;
+        margin-top: 17%;
+    width: 30%;
+    padding: 100px;
     display: block;
     border-radius: 20px;
     outline: none;

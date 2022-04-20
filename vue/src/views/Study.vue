@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Study</h1>
+      <h1 id="headingText">Study</h1>
     <study-cards v-bind:deckID="$route.params.deckID" />
   </div>
 </template>
@@ -15,6 +15,14 @@ export default {
 };
 </script>
 
-<style>
 
+
+<style scoped>
+
+#headingText {
+  color: rgb(228, 228, 228);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
 </style>

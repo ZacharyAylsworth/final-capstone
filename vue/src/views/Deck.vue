@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Add Deck</h1>
+    <h1 id="upper_deck_text">Add Deck</h1>
     <cards-list />
   </div>
 </template>
@@ -16,5 +16,12 @@ export default {
 </script>
 
 <style>
+#upper_deck_text {
+  color: rgb(228, 228, 228);
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
+
 
 </style>
