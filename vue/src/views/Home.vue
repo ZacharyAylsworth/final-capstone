@@ -30,7 +30,7 @@
           <div id="main_buttons">
             <div id="upper_buttons">
               <router-link tag="button" type="submit" class="main_upper_btn" v-bind:to="{ name: 'Deck' }">Add Deck</router-link>
-              <button type="submit" class="upper_btn2">Edit Deck</button>
+              <!-- <button type="submit" class="upper_btn2">Edit Deck</button> -->
             </div>
           </div>
         

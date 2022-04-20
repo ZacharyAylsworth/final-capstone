@@ -16,7 +16,7 @@
       </div>
       
       <div id="buttons">
-        <button class="btn btn-submit" id="submitButton">Submit</button>
+        <button class="btn btn-submit" id="submitButton" v-on:click='submitForm'>Submit</button>
         <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
 
         
@@ -50,6 +50,11 @@ export default {
     },
 
     methods: {
+
+      resetForm(){
+        
+      },
+
       submitForm() {
         // test
         this.$store.commit('SAVE_CARD', this.card);
@@ -63,7 +68,7 @@ export default {
         };
 
         // test
-        this.$router.push({ name: 'ListCards', params: { deckID: newCard.deckID } })
+        // this.$router.push({ name: 'ListCards', params: { deckID: newCard.deckID } })
         // test
 
       if (this.cardID === 0) {
@@ -72,7 +77,9 @@ export default {
           .addCard(newCard)
           .then(response => {
             if (response.status === 201) {
-              this.$router.push(`/decks/${newCard.deckID}`); 
+              // this.$router.push(`/decks/${newCard.deckID}`);
+              this.card.front = "";
+              this.card.back = "";
             }
           })
           .catch(error => {
