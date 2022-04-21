@@ -10,10 +10,9 @@
     <aside id="aside">
       <div class="study-sessions-text"> Study Sessions: </div>
       <div id="aside_buttons">
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 1} }" class="aside_btn1">Vocab - Easy</router-link>
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 2} }" class="aside_btn1">Vocab - Medium</router-link>
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 3} }" class="aside_btn1">Vocab - Hard</router-link>
-           
+
+        <router-link v-for="decks in listOfDecks" v-bind:key="decks.deck_id" tag='button' v-bind:to="{ name: 'Study', params: {deckID:decks.deck_id} }" class="aside_btn1">{{ decks.deck_name }}</router-link>
+          
       </div>
       
     </aside>
@@ -48,19 +47,30 @@
 import AddFlashCard from '@/views/AddFlashCard'
 import EditCard from '@/views/EditCard'
 import Deck from '@/views/Deck'
+import FlashService from '../services/FlashService';
 
 export default {
   name: "home",
    data() {
+     
     return {
       activeDeck: 1,
+      listOfDecks: []
       }
     },
   views: { 
     AddFlashCard,
     EditCard,
-    Deck}
+    Deck},
+
+    created(){
+      FlashService.getDecks().then((response) => {
+        this.listOfDecks = response.data;
+      })
+    }
+
 };
+
 </script>
 
 

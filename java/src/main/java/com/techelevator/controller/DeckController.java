@@ -26,6 +26,11 @@ public class DeckController {
         this.FDao = FDao;
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(value ="/decks", method = RequestMethod.GET)
+    public List<Deck> listDecks(){
+        return dao.listDecks();
+    }
 
 
     //CREATE deck

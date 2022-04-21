@@ -26,7 +26,7 @@ public class JdbcDeckDao implements DeckDao {
     public List<Deck> listDecks() {
         List<Deck> decks = new ArrayList<>();
         String sql = "SELECT deck_id, deck_name, card_id " +
-                "FROM decks";
+                "FROM decks ORDER BY deck_id";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Deck deck = mapRowToDeck(results);
