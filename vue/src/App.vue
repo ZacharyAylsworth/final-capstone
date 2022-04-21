@@ -46,7 +46,7 @@ export default {
 #nav {
   padding-top: 20px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   
 }
 

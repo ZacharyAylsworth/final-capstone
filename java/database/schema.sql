@@ -7,6 +7,8 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS difficulty;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
+
+
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
   NO MAXVALUE
@@ -23,6 +25,8 @@ CREATE TABLE decks (
     deck_name varchar(200) NOT NULL,
     card_id int
 );
+
+ALTER SEQUENCE decks_deck_id_seq RESTART WITH 4;
 
 CREATE TABLE categories (
     category_id int primary key,
