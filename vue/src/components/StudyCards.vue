@@ -1,6 +1,6 @@
 <template>
   <div id="study_container">
-      <label for="study-deck" id="study_title">Deck:</label>
+      <label for="study-deck" id="study_title"> {{ deck.deck_name }}</label>
       
       <div v-if="!flipped" id="word">
           {{ currentCard.front }}
@@ -27,7 +27,7 @@ import Deck from '../views/Deck.vue'
 
 export default {
     name: 'study-cards',
-    props: ["deckID", "deck"],
+    props: ["deckID"],
     views: { Deck },
 
 computed: {
@@ -44,11 +44,13 @@ data(){
         cards: [],
         cardIndex: 0,
         flipped: false,
+        deck: {}
     }
 },
 
 created(){
-    FlashService.getDeck(this.deckID).then(() => {
+    FlashService.getDeck(this.deckID).then((response) => {
+      this.deck = response.data;
     this.retrieveCards();
     });
 },

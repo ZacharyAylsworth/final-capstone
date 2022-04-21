@@ -21,9 +21,9 @@
         </div>
       </div>
       <div id="deck-buttons">
-        <router-link tag="button" class="btn btn-submit" id="submitButton" v-bind:to="{ name: 'AddFlashCard', params: { deckID: this.deckId } }">
-        Submit
-        </router-link>
+        <input type="submit" class="btn btn-submit" id="submitButton" value="Submit" />
+        
+        
         <router-link tag='button' to="/" class="btn btn-cancel" v-on:click.prevent="cancelForm" type="cancel" id="cancelButton">Cancel</router-link>
       </div>
       </form>
@@ -62,6 +62,7 @@ export default {
       submitForm(){
         FlashService.addDecks(this.deck).then(response => {
           this.deckId = response.data.deck_id;
+          this.$router.push({ name: 'AddFlashCard', params: { deckID: this.deckId } })
         })
       },
 
@@ -232,7 +233,7 @@ img {
     font-size: 20px;
 
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     
 }
   

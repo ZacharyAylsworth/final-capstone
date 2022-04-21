@@ -8,10 +8,11 @@
 
 
     <aside id="aside">
+      <div class="study-sessions-text"> Study Sessions: </div>
       <div id="aside_buttons">
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 1} }" class="aside_btn1">Deck 1</router-link>
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 2} }" class="aside_btn1">Deck 2</router-link>
-        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 3} }" class="aside_btn1">Deck 3</router-link>
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 1} }" class="aside_btn1">Vocab - Easy</router-link>
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 2} }" class="aside_btn1">Vocab - Medium</router-link>
+        <router-link tag='button' v-bind:to="{ name: 'Study', params: {deckID: 3} }" class="aside_btn1">Vocab - Hard</router-link>
            
       </div>
       
@@ -67,7 +68,11 @@ export default {
 
 <style scoped>
 
-
+.study-sessions-text{
+  color: antiquewhite;
+  margin-top: 10px;
+  font-size: 30px;
+}
 
 .home{
   display: flex;

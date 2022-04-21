@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1 id="headingText">Study</h1>
+      <h1 id="headingText">Study Session</h1>
     <study-cards v-bind:deckID="$route.params.deckID" />
   </div>
 </template>
